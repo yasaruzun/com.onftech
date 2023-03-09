@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.team105Cucumber" />
+        <module name="com.trendlifebuy" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="com.trendlifebuy" target="19" />
+      <module name="com.team105Cucumber" target="18" />
     </bytecodeTargetLevel>
   </component>
 </project>
