@@ -1,5 +1,5 @@
 Feature: US_041 As an administrator, I want the support ticket page to be in order to be able to handle the opened support tickets.
-
+  @smoke
   Scenario: TC_001 Support Ticket confirms that the Support Ticket page has been visited
 
     Given goes to "adminUrl".
