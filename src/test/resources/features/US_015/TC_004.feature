@@ -4,8 +4,8 @@
 
     Scenario: TC_004 Verify that the Total Balance amount
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box

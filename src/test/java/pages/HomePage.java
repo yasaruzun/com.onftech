@@ -212,18 +212,18 @@ public WebElement AboutUsLink;
     public WebElement QualityAndReasoanblePriceText;
 
   // homepage>About us> clientWorldwidetext
-    @FindBy(xpath = "(//div[@ class='about_countBox mb_30 text-center'])[1]")
+    @FindBy(xpath = "(//div[@ class='col-xl-3 col-lg-3 col-md-6'])[1]")
     public WebElement clientWorldwidetext;
 
     // homepage>About us> SuccesfulProjecttext
-    @FindBy(xpath = "(//div[@ class='about_countBox mb_30 text-center'])[2]")
+    @FindBy(xpath = "(//div[@ class='col-xl-3 col-lg-3 col-md-6'])[2]")
     public WebElement SuccesfulProjecttext;
     // homepage>About us> work employed
-    @FindBy(xpath = "(//div[@ class='about_countBox mb_30 text-center'])[3]")
+    @FindBy(xpath = "(//div[@ class='col-xl-3 col-lg-3 col-md-6'])[3]")
     public WebElement workemployedtext;
 
     // homepage>About us> Planning Service
-    @FindBy(xpath = "(//div[@ class='about_countBox mb_30 text-center'])[4]")
+    @FindBy(xpath = "(//div[@ class='col-xl-3 col-lg-3 col-md-6'])[4]")
     public WebElement PlanningServicetext;
 
     // homepage>About us> online shopping easy and cost=efficient text
@@ -237,16 +237,34 @@ public WebElement AboutUsLink;
     // homepage>About us> Teammember > Robert Pattinson
     @FindBy(xpath = "(//div[@ class='col-lg-3 col-md-6'])[1]")
     public WebElement RobertPattinson;
+
+    @FindBy(xpath = "(//div[@ class='thumb'])[1]")
+    public WebElement RobertThumb;
+
     // homepage>About us> Teammember > Johnny Depp
     @FindBy(xpath = "(//div[@ class='col-lg-3 col-md-6'])[2]")
-    public WebElement JohnnyDepp;
+    public WebElement JohnyDepp;
+
+   @FindBy(xpath = "(//div[@ class='thumb'])[2]")
+   public WebElement JohnnyThumb;
+
     // homepage>About us> Teammember > Jason Statham
     @FindBy(xpath = "(//div[@ class='col-lg-3 col-md-6'])[3]")
     public WebElement JasonStatham;
+
+    @FindBy(xpath = "(//div[@ class='thumb'])[3]")
+    public WebElement JasonThumb;
+
     // homepage>About us> Teammember > Harry Cooper
     @FindBy(xpath = "(//div[@ class='col-lg-3 col-md-6'])[4]")
     public WebElement HarryCooper;
 
+    @FindBy(xpath = "(//div[@ class='thumb'])[1]")
+    public WebElement HarryThumb;
+
+    //homepage>subscribe to our newsletter
+    @FindBy(xpath = "(//div[@ class='close_modal'])[1]")
+     public WebElement SubscribeLink;
 
 
 

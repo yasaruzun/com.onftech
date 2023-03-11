@@ -4,8 +4,8 @@
 
     Scenario: TC_003 Boards are visible on the Dashboard page.
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -14,8 +14,8 @@
       And All Order  boards are is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -24,8 +24,8 @@
       And My Wishlist boards is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -34,8 +34,19 @@
       And Refund Success boards  is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
+      And Login link is click
+      Then Writes "Username" in the user box
+      Then Writes "Password" in the password box
+      And  Sign in link is click
+      And Dashboard link click
+      And Product in Cart  is displayed
+      And closes the page
+
+
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -44,8 +55,8 @@
       And Coupon Used boards  is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box

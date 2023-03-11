@@ -4,8 +4,8 @@
 
     Scenario: TC_002 The dashboard UserName and User Email address
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -14,8 +14,9 @@
       And UserName  are displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
+      Then "3" seconds wait
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box

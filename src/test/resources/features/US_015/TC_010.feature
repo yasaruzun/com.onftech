@@ -4,8 +4,8 @@
 
     Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -15,8 +15,8 @@
       And Dashboard page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -26,8 +26,8 @@
       And Purchase History page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -37,8 +37,8 @@
       And  My Wishlist page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -48,8 +48,8 @@
       And  My Order page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -59,8 +59,8 @@
       And  Giftcard page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -70,8 +70,8 @@
       And  My Wallet page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -81,8 +81,8 @@
       And  My Coupons page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -92,8 +92,8 @@
       And  Refund &Dispute page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -103,8 +103,8 @@
       And  My Account page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
@@ -114,19 +114,32 @@
       And  Digital Products page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
       And  Sign in link is click
       And Dashboard link click
-      And Side Bar Referral, Support Ticke link.click
-      And  Referral, Support Ticke page is displayed
+      And Side Bar Referral click
+      And  Referral  page is displayed
       And closes the page
 
-      Given User goes to Url
-      And Home Page is display
+
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
+      And Login link is click
+      Then Writes "Username" in the user box
+      Then Writes "Password" in the password box
+      And  Sign in link is click
+      And Dashboard link click
+      And Side Bar  Support Ticket link click
+      And  Support Ticket page is displayed
+      And closes the page
+
+
+      Given User goes to "Url"
+      Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
       Then Writes "Password" in the password box
