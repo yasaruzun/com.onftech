@@ -13,7 +13,7 @@
       And Dashboard link click
       And RECHARGE WALLET is display
       And RECHARGE WALLET Click
-      And Recharge Amount is displayed
       And Recharge Amount link send keys money ADD FUND link click
       Then Stripe Link is display
+      And logout link is click
       And closes the page

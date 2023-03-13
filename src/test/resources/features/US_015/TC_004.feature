@@ -12,4 +12,5 @@
       And  Sign in link is click
       And Dashboard link click
       And Total Balance boards  is displayed
+      And logout link is click
       And closes the page

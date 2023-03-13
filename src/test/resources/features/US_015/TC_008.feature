@@ -14,4 +14,5 @@
       And  Recent Order link is displayed
       And Recent Order SEE ALL link click
       And Recent Order page is displayed
+      And logout link is click
       And closes the page

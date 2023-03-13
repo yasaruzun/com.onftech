@@ -266,6 +266,33 @@ public WebElement AboutUsLink;
     @FindBy(xpath = "(//div[@ class='close_modal'])[1]")
      public WebElement SubscribeLink;
 
+    //https://qa.trendlifebuy.com/contact-us>
+    @FindBy(xpath="(//a [@href='https://qa.trendlifebuy.com/contact-us' ])[1]")
+    public WebElement contacUs;
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section Enter Name box
+    @FindBy(id="name")
+    public WebElement boxEnterName;
+
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section Enter Email Address box
+    @FindBy(id="email")
+    public WebElement boxEnterEmailAddress;
+
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section Installation/Customer/Product Returns dropdown
+    @FindBy(xpath="//span[@class='current']")
+    public WebElement installationCustomerProductReturns;
+
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section Product Returns
+    @FindBy(xpath="//li[@data-value='3']")
+    public WebElement productReturns;
+
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section Write Message box
+    @FindBy(id="message")
+    public WebElement boxWriteMessage;
+
+    //https://qa.trendlifebuy.com/contact-us>  Get in Touch section SEND MESSAGE button
+    @FindBy(id="contactBtn")
+    public WebElement buttonSendMessage;
+
 
 
 

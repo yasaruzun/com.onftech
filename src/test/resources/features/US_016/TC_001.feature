@@ -1,8 +1,8 @@
 
 
-  Feature: US 015 Dashboard page on the site to control my operations and settings on the site.
+  Feature: US 016 Reviewing the Purchase History page as a user
 
-    Scenario: TC_009 Product in Cart See All button
+    Scenario: TC_001 The Purchase History Link leads to the Purchase History page
 
       Given User goes to "Url"
       Then  Home Page is display "trendlifebuy"
@@ -11,8 +11,15 @@
       Then Writes "Password" in the password box
       And  Sign in link is click
       And Dashboard link click
-      And  Product in Cart link is displayed
-      And Product in Cart SEE ALL link click
-      And Product in Cart page is displayed
+      And Side Bar Purchase History link.click
+      And Purchase History page is displayed
       And logout link is click
       And closes the page
+
+
+
+
+
+
+
+
