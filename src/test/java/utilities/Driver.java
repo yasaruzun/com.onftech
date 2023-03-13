@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class Driver {
     /*
-        Driver claass'indan driver'i getDriver methodu ile kullaniyoruz
+        Driver claass'indan drigiver'i getDriver methodu ile kullaniyoruz
         sonradan projeye katilan insanlarin Driver class'indan obje olusturarak
         driver kullanmaya calismalarini engellemek icin
 

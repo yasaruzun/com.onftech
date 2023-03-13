@@ -1,5 +1,5 @@
 Feature: US_041 As an administrator, I want the support ticket page to be in order to be able to handle the opened support tickets.
-  @smoke
+
   Scenario:TC_005 It should be verified that the browser buttons are deleted with the delete icon next to the
   Browser button created afterwards.
 
