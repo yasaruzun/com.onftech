@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
@@ -34,9 +35,12 @@ public class Driver {
             switch (browser) {
 
                 case "chrome":
-
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    ChromeOptions ops = new ChromeOptions();
+                    ops.addArguments("--remote-allow-origins=*");
+                    driver = new ChromeDriver(ops);
+                    //WebDriverManager.chromedriver().setup();
+                    //driver = new ChromeDriver();
                     break;
 
                 case"firefox":
@@ -70,4 +74,6 @@ public class Driver {
             driver=null;
         }
     }
+
+
 }
