@@ -2,7 +2,7 @@
 
   Feature: US 015 Dashboard page on the site to control my operations and settings on the site.
 
-    Scenario: TC_009 Product in Cart See All button
+    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
 
       Given User goes to "Url"
       Then  Home Page is display "trendlifebuy"
@@ -11,8 +11,7 @@
       Then Writes "Password" in the password box
       And  Sign in link is click
       And Dashboard link click
-      And  Product in Cart link is displayed
-      And Product in Cart SEE ALL link click
-      And Product in Cart page is displayed
+      And Side Bar  Support Ticket link click
+      And  Support Ticket page is displayed
       And logout link is click
       And closes the page
