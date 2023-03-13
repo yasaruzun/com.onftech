@@ -1,5 +1,4 @@
 package stepDefinitions;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,11 +8,9 @@ import pages.AdminPage;
 import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
-
 public class AdminPageStepdefinitions {
 
     AdminPage adminPage = new AdminPage();
-
     @Given("goes to {string}.")
     public void goes_to(String string) {
         Driver.getDriver().get(ConfigReader.getProperty("adminUrl"));
@@ -94,7 +91,6 @@ public class AdminPageStepdefinitions {
         Assert.assertEquals(expectedTitleDescription, actualTitleDescription);
     }
 
-
     @And("clicks on the {string} button next to the {string} button")
     public void clicksOnTheButtonNextToTheButton(String arg0, String arg1) {
         adminPage.buttonAdminTicketsCreatePlus.click();
@@ -118,17 +114,176 @@ public class AdminPageStepdefinitions {
         int flag = 1;
         try {
             adminPage.buttonAdminTicketsDeleteIcon.click();
-            Assert.assertFalse(flag==1);
+            Assert.assertFalse(flag == 1);
             //exception olusmazsa bekledigimiz durum gerceklesmedi demektir
             //bu durumda test failed olmali
-            //bunun icin 119.satirda failed olacak bir assertion yazdik
+            //bunun icin failed olacak bir assertion yazdik
 
         } catch (Exception e) {
-            Assert.assertTrue(flag==1);
-            //118. satirda delete butonu gorunmuyorsa exception olusur
-            //bu bizi bekledigimiz durum oldugundan testin passed olmasi gerekir
+            Assert.assertTrue(flag == 1);
+            //delete butonu gorunmuyorsa exception olusur
+            //bu bizim bekledigimiz durum oldugundan testin passed olmasi gerekir
             //exception olusuncaonu cath ile yakaladik ve
-            // 125.satirda PASSED olacak bir Assetion yazdık
+            //PASSED olacak bir Assetion yazdık
         }
+    }
+
+    @And("after filling in the necessary information, the user clicks on the {string} button")
+    public void afterFillingInTheNecessaryInformationTheUserClicksOnTheButton(String arg0) {
+        adminPage.textAdminTicketsCreateSubjact.sendKeys("Test017");
+
+        adminPage.dropDownAdminTicketsCategoryList.click();
+        adminPage.dropDownAdminTicketsCategoryNewCategoryTitle.click();
+
+        adminPage.dropDownAdminTicketsPriorty.click();
+        adminPage.dropDownAdminTicketsPriortyMediumTitle.click();
+
+        adminPage.dropDownAdminTicketsStatus.click();
+        adminPage.dropDownAdminTicketsStatusNewStatusTitle.click();
+
+        String dinamikDosyaYolu =System.getProperty("user.home")+ "\\Documents\\Test017.png";
+        adminPage.buttonAdminTicketsCreateBrowse.sendKeys(dinamikDosyaYolu);
+
+        adminPage.textAdminTicketsCreateDescription.sendKeys("test17");
+
+        adminPage.buttonAdminTicketsCreateCreateTicket.click();
+    }
+
+    @When("tests that a new ticket has been added")
+    public void testsThatANewTicketHasBeenAdded() {
+        String expectedTitle = "Success";
+        String actualTitle = adminPage.titleSuccessMessage.getText();
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+
+    @And("clicks on the {string} dropbox option")
+    public void clicksOnTheDropboxOption(String arg0) {
+        adminPage.dropDownAdminTicketsCategoryList.click();
+    }
+
+    @When("tests that the dropbox options are visible")
+    public void testsThatTheDropboxOptionsAreVisible() {
+        adminPage.dropDownAdminTicketsCategoryNewCategoryTitle.isDisplayed();
+    }
+
+    @Then("tests that the dropbox options are selectable")
+    public void testsThatTheDropboxOptionsAreSelectable() {
+        System.out.println(adminPage.dropDownAdminTicketsCategoryNewCategoryTitle.getText());
+        adminPage.dropDownAdminTicketsCategoryNewCategoryTitle.isSelected();
+    }
+
+    @And("clicks on {string} dropdown option")
+    public void clicksOnDropdownOption(String arg0) {
+        adminPage.dropDownAdminTicketsPriorty.click();
+    }
+
+    @When("tests that {string}, {string}, {string}, {string} are visible in the dropdown options")
+    public void testsThatAreVisibleInTheDropdownOptions(String arg0, String arg1, String arg2, String arg3) {
+        adminPage.adminTicketsPriortySelectOneTitle.isDisplayed();
+        adminPage.adminTicketsPriortyHighTitle.isDisplayed();
+        adminPage.dropDownAdminTicketsPriortyMediumTitle.isDisplayed();
+        adminPage.adminTicketsPriortyLowTitle.isDisplayed();
+    }
+
+    @Then("tests that {string}, {string}, {string}, {string} are selectable in the dropdown options")
+    public void testsThatAreSelectableInTheDropdownOptions(String arg0, String arg1, String arg2, String arg3) {
+        adminPage.adminTicketsPriortySelectOneTitle.isSelected();
+        adminPage.adminTicketsPriortyHighTitle.isSelected();
+        adminPage.dropDownAdminTicketsPriortyMediumTitle.isSelected();
+        adminPage.adminTicketsPriortyLowTitle.isSelected();
+    }
+
+    @And("clicks on the {string} dropdown option")
+    public void clicksOnTheDropdownOption(String arg0) {
+        adminPage.dropDownAdminTicketsStatus2.click();
+    }
+
+    @When("tests that {string}, {string}, {string}, {string}, {string} are visible in the dropdown options")
+    public void testsThatAreVisibleInTheDropdownOptions(String arg0, String arg1, String arg2, String arg3, String arg4) {
+        adminPage.adminTicketsStatusSelectOne.isDisplayed();
+        adminPage.adminTicketsStatusPending.isDisplayed();
+        adminPage.adminTicketsStatusOnGoing.isDisplayed();
+        adminPage.adminTicketsStatusCompleted.isDisplayed();
+        adminPage.adminTicketsStatusClosed.isDisplayed();
+    }
+
+    @Then("tests that {string}, {string}, {string}, {string}, {string} are selectable in the dropdown options")
+    public void testsThatAreSelectableInTheDropdownOptions(String arg0, String arg1, String arg2, String arg3, String arg4) {
+        adminPage.adminTicketsStatusSelectOne.isSelected();
+        adminPage.adminTicketsStatusPending.isSelected();
+        adminPage.adminTicketsStatusOnGoing.isSelected();
+        adminPage.adminTicketsStatusCompleted.isSelected();
+        adminPage.adminTicketsStatusClosed.isSelected();
+    }
+
+    @And("filters from {string}, {string}, {string} dropdown options.")
+    public void filtersFromDropdownOptions(String arg0, String arg1, String arg2) {
+        adminPage.dropDownAdminTicketsCategoryList.click();
+        adminPage.dropDownAdminTicketsCategoryNewCategoryTitle.click();
+
+        adminPage.dropDownAdminTicketsPriorty.click();
+        ReusableMethods.bekle(1);
+        adminPage.adminTicketsPriortyHighTitle.click();
+        ReusableMethods.bekle(1);
+
+        adminPage.dropDownAdminTicketsStatus2.click();
+        ReusableMethods.bekle(1);
+        adminPage.adminTicketsStatusPending.click();
+    }
+
+    @When("clicks on the Search button")
+    public void clicksOnTheSearchButton() {
+        adminPage.buttonAdminTicketsSearch.click();
+    }
+
+    @Then("tests that a Ticket List is created according to the filtering he-she has selected")
+    public void testsThatATicketListIsCreatedAccordingToTheFilteringHeSheHasSelected() {
+        adminPage.textAdminTicketListCategoryNewCategory.isDisplayed();
+        adminPage.textAdminTicketListPriortyHigh.isDisplayed();
+        adminPage.textAdminTicketListStatusPending.isDisplayed();
+    }
+
+    @And("verifies that the tickets opened in Ticket List are listed under the headings {string}, {string}, {string}, {string}, {string}, {string}, {string} and {string}")
+    public void verifiesThatTheTicketsOpenedInTicketListAreListedUnderTheHeadingsAnd(String arg0, String arg1, String arg2, String arg3, String arg4, String arg5, String arg6, String arg7) {
+
+        adminPage.titleAdminTicketListSubject.isDisplayed();
+        adminPage.titleAdminTicketListCategory.isDisplayed();
+        adminPage.titleAdminTicketListUserName.isDisplayed();
+        adminPage.titleAdminTicketListPriorty.isDisplayed();
+        adminPage.titleAdminTicketListUserAgent.isDisplayed();
+        adminPage.titleAdminTicketListStatus.isDisplayed();
+        adminPage.titleAdminTicketListAgentAsign.isDisplayed();
+        adminPage.titleAdminTicketListAction.isDisplayed();
+
+    }
+
+    @And("tests that the account information is visible if there is an account assigned from the tickets opened under {string}.")
+    public void testsThatTheAccountInformationIsVisibleIfThereIsAnAccountAssignedFromTheTicketsOpenedUnder(String arg0) {
+        String expectedTitle ="UNASSIGNED";
+        String actualTitle = adminPage.formAdminTicketListAgentAsign.getText();
+
+        Assert.assertFalse(expectedTitle.contains(actualTitle));
+    }
+
+    @When("tests that the {string} text is visible if an account is not specified in the tickets opened under {string}.")
+    public void testsThatTheTextIsVisibleIfAnAccountIsNotSpecifiedInTheTicketsOpenedUnder(String arg0, String arg1) {
+        String expectedTitle ="UNASSIGNED";
+        String actualTitle = adminPage.formAdminTicketListAgentUnassigned.getText();
+        Assert.assertTrue(expectedTitle.contains(actualTitle));
+    }
+
+    @And("selects an account for the ticket that is {string} under the {string} heading.")
+    public void selectsAnAccountForTheTicketThatIsUnderTheHeading(String arg0, String arg1) {
+        adminPage.formAdminTicketListAgentUnassigned.click();
+        adminPage.linkAdminTicketListSuperAdmin.click();
+        ReusableMethods.bekle(3);
+    }
+
+    @When("tests that {string} is replaced by an account name.")
+    public void testsThatIsReplacedByAnAccountName(String arg0) {
+        String expectedTitle ="UNASSIGNED";
+        String actualTitle = adminPage.formAdminTicketListAgentUnassigned.getText();
+        System.out.println(adminPage.formAdminTicketListAgentUnassigned.getText());
+        Assert.assertFalse(expectedTitle.contains(actualTitle));
     }
 }
