@@ -238,7 +238,18 @@ public class HomePageStepDefinitions {
 
 
             }
-        }
+
+            @Then("verify that the title is Trendlifebuy Online Shopping")
+            public void verifyThatTheTitleIsTrendlifebuyOnlineShopping() {
+
+            String actualTitle=Driver.getDriver().getTitle();
+            String expectedTitle="Trendlifebuy Online Shopping";
+
+            Assert.assertEquals(expectedTitle,actualTitle);
+
+
+    }
+}
 
 
 
