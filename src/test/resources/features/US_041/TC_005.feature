@@ -1,12 +1,5 @@
 Feature: US_041 As an administrator, I want the support ticket page to be in order to be able to handle the opened support tickets.
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> main
->>>>>>> e95686cd9192cde0cd273883486716e7c4ca1ac2
   Scenario:TC_005 It should be verified that the browser buttons are deleted with the delete icon next to the
   Browser button created afterwards.
 
