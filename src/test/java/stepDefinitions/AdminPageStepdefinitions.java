@@ -286,4 +286,172 @@ public class AdminPageStepdefinitions {
         System.out.println(adminPage.formAdminTicketListAgentUnassigned.getText());
         Assert.assertFalse(expectedTitle.contains(actualTitle));
     }
+
+    @And("clicks on the {string} tab under the {string} heading.")
+    public void clicksOnTheTabUnderTheHeading(String arg0, String arg1) {
+        adminPage.buttonAdminTicketListAction.click();
+    }
+
+    @When("clicking on the {string} tab, tests that the {string}, {string}, {string} links are visible.")
+    public void clickingOnTheTabTestsThatTheLinksAreVisible(String arg0, String arg1, String arg2, String arg3) {
+        adminPage.linkAdminTicketListActionSelectShow.isDisplayed();
+        adminPage.linkAdminTicketListActionSelectEdit.isDisplayed();
+        adminPage.linkAdminTicketListActionSelectDelete.isDisplayed();
+    }
+
+    @And("clicks on the {string} link in the {string} tab under the {string} heading.")
+    public void clicksOnTheLinkInTheTabUnderTheHeading(String arg0, String arg1, String arg2) {
+        adminPage.buttonAdminTicketListAction.click();
+        adminPage.linkAdminTicketListActionSelectShow.click();
+    }
+
+    @Then("tests that the page with the relevant ticket information is displayed.")
+    public void testsThatThePageWithTheRelevantTicketInformationIsDisplayed() {
+        String expectedTitle = "Ticket Info";
+        String actualTitle = adminPage.titleAdminTicketShowTicketInfo.getText();
+
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+
+    @When("adds an additional file by clicking the Browse button in the {string} section.")
+    public void addsAnAdditionalFileByClickingTheBrowseButtonInTheSection(String arg0) {
+        String dinamikDosyaYolu =System.getProperty("user.home")+ "\\Documents\\Test017.png";
+        adminPage.buttonAdminTicketsCreateBrowse.sendKeys(dinamikDosyaYolu);
+    }
+
+    @Then("its status is changed in the {string} section.")
+    public void itsStatusIsChangedInTheSection(String arg0) {
+        adminPage.dropDownAdminTicketsEditStatus.click();
+        adminPage.dropDownAdminEditStatusNewStatus.click();
+    }
+
+    @And("the {string} button.")
+    public void theButton(String arg0) {
+        adminPage.buttonAdminTicketShowReplyTicket.click();
+    }
+
+    @When("tests that the changes are saved.")
+    public void testsThatTheChangesAreSaved() {
+        String expectedTitle = "Success";
+        String actualTitle = adminPage.alertTitleAdminTicketShow.getText();
+
+        Assert.assertTrue(expectedTitle.contains(actualTitle));
+    }
+
+    @And("clicks on the Edit link in the {string} tab under the {string} heading.")
+    public void clicksOnTheEditLinkInTheTabUnderTheHeading(String arg0, String arg1) {
+        adminPage.buttonAdminTicketListAction.click();
+        adminPage.linkAdminTicketListActionSelectEdit.click();
+    }
+
+    @When("{string} page, the user clicks on the {string} link next to the {string} title")
+    public void pageTheUserClicksOnTheLinkNextToTheTitle(String arg0, String arg1, String arg2) {
+        adminPage.linkAdminTicketEditCategoryListAddNew.click();
+    }
+
+    @Then("click on the {string} link, enter the Category name in the {string} box and then click on the {string} button")
+    public void clickOnTheLinkEnterTheCategoryNameInTheBoxAndThenClickOnTheButton(String arg0, String arg1, String arg2) {
+        adminPage.textAdminTicketEditCategoryListAddNew.sendKeys("TrendLifeBuy01");
+        adminPage.buttonAdminTicketEditCategoryListAddNewSave.click();
+    }
+
+    @And("tests that a new {string} has been added.")
+    public void testsThatANewHasBeenAdded(String arg0) {
+        String expectedMessage ="Category Added successfully!";
+        String actualMessage = adminPage.titleSuccessMessageEdit.getText();
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
+
+    @When("{string} page, the user clicks on the {string} link next to the Priority title")
+    public void pageTheUserClicksOnTheLinkNextToThePriorityTitle(String arg0, String arg1) {
+        adminPage.linkAdminTicketEditPriortyAddNew.click();
+
+    }
+
+    @Then("Click on the {string} link, enter the name Priority in the {string} box and then click on the {string} button")
+    public void clickOnTheLinkEnterTheNamePriorityInTheBoxAndThenClickOnTheButton(String arg0, String arg1, String arg2) {
+        adminPage.textAdminTicketEditPriortyAddNew.sendKeys("TrendLifeBuy01");
+        adminPage.buttonAdminTicketEditPriortySave.click();
+    }
+
+    @And("tests that a new Priority has been added.")
+    public void testsThatANewPriorityHasBeenAdded() {
+        String expectedMessage ="Added successfully! Added successfully!";
+        String actualMessage = adminPage.titleAdminTicketEditPriortySuccessMessage.getText();
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
+
+    @Then("{string} page, the user clicks on the {string} link next to the Status title")
+    public void pageTheUserClicksOnTheLinkNextToTheStatusTitle(String arg0, String arg1) {
+        adminPage.linkAdminTicketEditStatusAddNew.click();
+    }
+
+    @When("Click on the {string} link, enter the Status name in the {string} box and then click on the {string} button")
+    public void clickOnTheLinkEnterTheStatusNameInTheBoxAndThenClickOnTheButton(String arg0, String arg1, String arg2) {
+        adminPage.textAdminTicketEditStatusAddNew.sendKeys("TrendBuyLife03");
+        adminPage.buttonAdminTicketEditStatusSave.click();
+    }
+
+    @And("tests that a new Status has been added.")
+    public void testsThatANewStatusHasBeenAdded() {
+        String expectedMessage ="Status Added successfully!";
+        String actualMessage = adminPage.titleAdminTicketEditStatusSuccessMessage.getText();
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
+
+    @Then("clicks the {string} button next to the {string} title on the {string} page  and selects a file")
+    public void clicksTheButtonNextToTheTitleOnThePageAndSelectsAFile(String arg0, String arg1, String arg2) {
+        String dinamikDosyaYolu =System.getProperty("user.home")+ "\\Documents\\Test017.png";
+        adminPage.buttonAdminTicketsCreateBrowse.sendKeys(dinamikDosyaYolu);
+    }
+
+    @When("tests that a new file has been added.")
+    public void testsThatANewFileHasBeenAdded() {
+        String expectedTitle="Test017.png";
+        String actualTitle =adminPage.titleAdminTicketEditAttachFile.getAccessibleName();
+
+        Assert.assertEquals(expectedTitle,actualTitle);
+    }
+
+    @Then("clicks the {string} button next to the {string} button on the {string} page.")
+    public void clicksTheButtonNextToTheButtonOnThePage(String arg0, String arg1, String arg2) {
+        adminPage.buttonAdminTicketsCreatePlus.click();
+    }
+
+    @When("enters all the information on the edit page to update.")
+    public void entersAllTheInformationOnTheEditPageToUpdate() {
+        String expectedTitle="Test017.png";
+        String actualTitle =adminPage.titleAdminTicketEditAttachFile.getAccessibleName();
+    }
+
+    @Then("click on {string} button.")
+    public void clickOnButton(String arg0) {
+        adminPage.buttonAdminTicketEditUpdateTicket.click();
+    }
+
+    @And("tests that the information is updated.")
+    public void testsThatTheInformationIsUpdated() {
+        String expectedMessage ="Updated successfully!";
+        String actualMessage = adminPage.titleAdminTicketEditSuccessMessage.getText();
+
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
+
+    @And("clicks on the Delete link in the {string} tab under the {string} heading.")
+    public void clicksOnTheDeleteLinkInTheTabUnderTheHeading(String arg0, String arg1) {
+        adminPage.buttonAdminTicketListAction.click();
+        adminPage.linkAdminTicketListActionSelectDelete.click();
+    }
+
+    @Then("the delete button from the window that opens.")
+    public void theDeleteButtonFromTheWindowThatOpens() {
+        adminPage.buttonAdminTicketDelete.click();
+    }
+
+    @When("it tests that the created ticket is deleted.")
+    public void itTestsThatTheCreatedTicketIsDeleted() {
+        String expectedMessage ="Deleted successfully!";
+        String actualMessage = adminPage.titleAdminTicketDeleteSeccessMessage.getText();
+        Assert.assertEquals(expectedMessage,actualMessage);
+    }
 }
