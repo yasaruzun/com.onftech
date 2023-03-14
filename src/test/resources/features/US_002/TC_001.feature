@@ -1,6 +1,6 @@
 
   Feature:US_002 Verify that the functions in the top menu of the home page are active
-    @smoke
+
     Scenario:TC_001 Play store and apple store buttons should redirect to the relevant page
 
       Given go to the "userUrl"
