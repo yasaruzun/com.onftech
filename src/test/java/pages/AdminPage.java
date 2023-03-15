@@ -1,7 +1,9 @@
 package pages;
 
 import io.cucumber.java.zh_cn.假如;
+import org.bouncycastle.jcajce.provider.asymmetric.X509;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
@@ -93,4 +95,247 @@ public class AdminPage {
     @FindBy (xpath = "//button[@class='primary-btn delete-ticket-message-attach small fix-gr-bg custom_plus_btn']")
     public WebElement buttonAdminTicketsDeleteIcon;
 
+    //Admin/Ticket/Tickets/Create/Subjact Text
+    @FindBy (xpath = "//input[@class='primary_input_field'] ")
+    public WebElement textAdminTicketsCreateSubjact;
+
+    //Admin/Ticket/Tickets/Category List
+    @FindBy(xpath = "(//span[text()='Select One'])[1]")
+    public WebElement dropDownAdminTicketsCategoryList;
+
+    //Admin/Ticket/Tickets/Priority
+    @FindBy(xpath = "(//div[@class='nice-select primary_select mb-15'])[2]")
+    public WebElement dropDownAdminTicketsPriorty;
+
+    //Admin/Ticket/Tickets/Status
+    @FindBy(xpath = "(//div[@class='nice-select primary_select mb-15'])[4]")
+    public WebElement dropDownAdminTicketsStatus;
+
+    //Admin/Ticket/Edit/Status
+    @FindBy(xpath = "(//div[@class='nice-select primary_select mb-15'])[1]")
+    public WebElement dropDownAdminTicketsEditStatus;
+
+    //Admin/Ticket/Tickets/Create/AttachFile
+    @FindBy(xpath = "//input[@id='ticket_file']")
+    public WebElement buttonAdminTicketsCreateBrowse;
+
+    //Admin/Ticket/Tickets/Create/Description
+    @FindBy (xpath = "//div[@class='note-editable card-block']")
+    public WebElement textAdminTicketsCreateDescription;
+
+    //Admin/Ticket/Tickets/Create/Create Ticket button
+    @FindBy (xpath = "//button[@class='primary-btn semi_large2 fix-gr-bg']")
+    public WebElement buttonAdminTicketsCreateCreateTicket;
+
+    //Admin/Ticket/Tickets/Category List => New Category
+    @FindBy(xpath = "//li[text()='New Category ']")
+    public WebElement dropDownAdminTicketsCategoryNewCategoryTitle;
+
+    //Admin/Ticket/Tickets/Priorty => Select One
+    @FindBy(xpath = "(//li[text()='Select One'])[2]")
+    public WebElement adminTicketsPriortySelectOneTitle;
+
+    //Admin/Ticket/Tickets/Priorty => High
+    @FindBy(xpath = "//li[text()='High ']")
+    public WebElement adminTicketsPriortyHighTitle;
+
+    //Admin/Ticket/Tickets/Priorty => Medium
+    @FindBy(xpath = "//li[text()='Medium ']")
+    public WebElement dropDownAdminTicketsPriortyMediumTitle;
+
+    //Admin/Ticket/Tickets/Priorty => Low
+    @FindBy(xpath = "//li[text()='Low ']")
+    public WebElement adminTicketsPriortyLowTitle;
+
+    //Admin/Ticket/Tickets/Status => Select One
+    @FindBy (xpath = "(//li[text()='Select One'])[3]")
+    public WebElement adminTicketsStatusSelectOne;
+
+    //Admin/Ticket/Tickets/Status => Pending
+    @FindBy (xpath = "//li[text()='Pending ']")
+    public WebElement adminTicketsStatusPending;
+
+    //Admin/Ticket/Tickets/Status => On Going
+    @FindBy (xpath = "//li[text()='On Going ']")
+    public WebElement adminTicketsStatusOnGoing;
+
+    //Admin/Ticket/Tickets/Status =>Completed
+    @FindBy(xpath = "//li[text()='Completed ']")
+    public WebElement adminTicketsStatusCompleted;
+
+    //Admin/Ticket/Tickets/Status=> Closed
+    @FindBy(xpath = "//li[text()='Closed ']")
+    public WebElement adminTicketsStatusClosed;
+
+    //Admin/Ticket/Tickets/Status => New Status
+    @FindBy(xpath = "//li[text()='New Status ']")
+    public WebElement dropDownAdminTicketsStatusNewStatusTitle;
+
+    //Admin/Ticket/Edit/status =>New Status
+    @FindBy(xpath = "//li[@data-value='5']")
+    public WebElement dropDownAdminEditStatusNewStatus;
+
+    //Admin/Ticket/Tickets/succes message
+    @FindBy (xpath = "//div[@class='toast-title']")
+    public WebElement titleSuccessMessage;
+
+    //Admin/Ticket/Edit/success Message
+    @FindBy(xpath = "//div[text()='Category Added successfully!']")
+    public WebElement titleSuccessMessageEdit;
+
+    //Admin/Ticket/Edit/Priorty success message
+    @FindBy(xpath = "//div[text()='Added successfully! Added successfully!']")
+    public WebElement titleAdminTicketEditPriortySuccessMessage;
+
+    //Admin/Ticket/Edit/Status success message
+    @FindBy(xpath = "//div[text()='Status Added successfully!']")
+    public WebElement titleAdminTicketEditStatusSuccessMessage;
+
+    //Admin/Ticket/Edit success message
+    @FindBy(xpath = "//div[text()='Updated successfully!']")
+    public WebElement titleAdminTicketEditSuccessMessage;
+
+    //Admin/Ticket/Delete success message
+    @FindBy(xpath = "//div[text()='Deleted successfully!']")
+    public WebElement titleAdminTicketDeleteSeccessMessage;
+
+    //Admin/Ticket/Tickets/StatusDropdown
+    @FindBy (xpath = "(//div[@class='nice-select primary_select mb-15'])[3]")
+    public WebElement dropDownAdminTicketsStatus2;
+
+    //Admin/Ticket/Tickets/Search
+    @FindBy(xpath = "//button[@id='search_btn']")
+    public WebElement buttonAdminTicketsSearch;
+
+    //Admin/Ticket/Ticket List/Category=> New Category
+    @FindBy(xpath = "(//td[text()='New Category'])[1]")
+    public WebElement textAdminTicketListCategoryNewCategory;
+
+    //Admin/Ticket/Ticket List/Priorty=> High
+    @FindBy (xpath = "(//td[text()='High'])[1]")
+    public WebElement textAdminTicketListPriortyHigh;
+
+    //Admin/Ticket/Ticket List/Status =>Pending
+    @FindBy(xpath = "(//td[text()='Pending'])[1]")
+    public WebElement textAdminTicketListStatusPending;
+
+    //Admin/Ticket/TicketList/Subject
+    @FindBy(xpath = "(//th[@class='sorting'])[2]")
+    public WebElement titleAdminTicketListSubject;
+
+    //Admin/Ticket/TicketList/Category
+    @FindBy (xpath = "(//th[@class='sorting'])[3]")
+    public WebElement titleAdminTicketListCategory;
+
+    //Admin/Ticket/TicketList/User Name
+    @FindBy(xpath = "//th[@class='sorting_asc']")
+    public WebElement titleAdminTicketListUserName;
+
+    //Admin/Ticket/TicketList/Priorty
+    @FindBy(xpath = "(//th[@class='sorting'])[4]")
+    public WebElement titleAdminTicketListPriorty;
+
+    //Admin/Ticket/TicketList/User agent
+    @FindBy (xpath = "(//th[@class='sorting'])[5]")
+    public WebElement titleAdminTicketListUserAgent;
+
+    //Admin/Ticket/TicketList/Status
+    @FindBy(xpath = "(//th[@class='sorting'])[6]")
+    public WebElement titleAdminTicketListStatus;
+
+    //Admin/Ticket/TicketList/Agent Asign
+    @FindBy(xpath = "(//th[@class='sorting'])[7]")
+    public WebElement titleAdminTicketListAgentAsign;
+
+    //Admin/Ticket/TicketList/Action
+    @FindBy(xpath = "(//th[@class='sorting'])[8]")
+    public WebElement titleAdminTicketListAction;
+
+    //Admin/Ticket/TicketList/Agent Asign=> agent asign to
+    @FindBy(xpath = "//div[@class='nice-select niceSelect w-100 bb form-control']")
+    public WebElement formAdminTicketListAgentAsign;
+
+    //Admin/Ticket/TicketList/Agent Asign=> UNASSIGNED
+    @FindBy(xpath = "(//div[@class='nice-select niceSelect w-100 bb form-control'])[3]")
+    public WebElement formAdminTicketListAgentUnassigned;
+
+    //Admin/Ticket/TicketList/Unassigned => Agent asign to (Admin17)
+    @FindBy (xpath = "(//li[text()='Super admin [info@trendlifebuy.com]'])[3]")
+    public WebElement linkAdminTicketListSuperAdmin;
+
+    //Admin/Ticket/TicketList/Action/Select button
+    @FindBy (xpath = "(//button[@class='btn btn-secondary dropdown-toggle'])[1]")
+    public WebElement buttonAdminTicketListAction;
+
+    //Admin/Ticket/TicketList/Action/Select =>Show link
+    @FindBy (xpath = "(//a[@class='dropdown-item'])[1]")
+    public WebElement linkAdminTicketListActionSelectShow;
+
+    //Admin/Ticket/TicketList/Action/Select =>Edit link
+    @FindBy(xpath = "(//a[@class='dropdown-item'])[2]")
+    public WebElement linkAdminTicketListActionSelectEdit;
+
+    //Admin/Ticket/TicketList/Action/Select =>Delete link
+    @FindBy(xpath = "(//a[@class='dropdown-item delete_ticket'])[1]")
+    public WebElement linkAdminTicketListActionSelectDelete;
+
+    //Admin/Ticket/Show/Ticket Info title
+    @FindBy(xpath = "//h4[text()='Ticket Info']")
+    public WebElement titleAdminTicketShowTicketInfo;
+
+    //Admin/Ticket/Show/Reply Ticket button
+    @FindBy(xpath = "//button[text()='Reply Ticket']")
+    public WebElement buttonAdminTicketShowReplyTicket;
+
+    //Admin/Ticket/Show/Alert title
+    @FindBy(xpath = "The text field is required.")
+    public WebElement alertTitleAdminTicketShow;
+
+    //Admin/Ticket/Edit/Category list => Add New
+    @FindBy(xpath = "//a[text()='Add New']")
+    public WebElement linkAdminTicketEditCategoryListAddNew;
+
+    //Admin/Ticket/Edit/Category List/Add New => New
+    @FindBy(xpath = "(//input[@class='primary_input_field name'])[2]")
+    public WebElement textAdminTicketEditCategoryListAddNew;
+
+    //Admin/Ticket/Edit/CategoryList/Add new => Save button
+    @FindBy(xpath = "(//button[@class='primary-btn fix-gr-bg tooltip-wrapper '])[2]")
+    public WebElement buttonAdminTicketEditCategoryListAddNewSave;
+
+    //Admin/Ticket/Edit/Priorty/Add New
+    @FindBy(xpath = "(//a[text()='Add New'])[2]")
+    public WebElement linkAdminTicketEditPriortyAddNew;
+
+    //Admin/Ticket/Edit/Priorty/Add New => New
+    @FindBy(xpath = "(//input[@class='primary_input_field name'])[1]")
+    public WebElement textAdminTicketEditPriortyAddNew;
+
+    //Admin/Ticket/Edit/Priorty/Add New => save button
+    @FindBy(xpath = "(//button[@class='primary-btn fix-gr-bg tooltip-wrapper '])[1]")
+    public WebElement buttonAdminTicketEditPriortySave;
+
+    //Admin/Ticket/Edit/Status/Add New
+    @FindBy(xpath = "(//a[text()='Add New'])[3]")
+    public WebElement linkAdminTicketEditStatusAddNew;
+
+    //Admin/Ticket/Edit/Status/Add New => New
+    @FindBy(xpath = "(//input[@class='primary_input_field name'])[3]")
+    public WebElement textAdminTicketEditStatusAddNew;
+
+    //Admin/Ticket/Edit/Status/Add New => save button
+    @FindBy(xpath = "(//button[@class='primary-btn fix-gr-bg tooltip-wrapper '])[3]")
+    public WebElement buttonAdminTicketEditStatusSave;
+
+    //Admin/Tİcket/Edit/Attach File
+    @FindBy(xpath = "//input[@class='primary-input']")
+    public WebElement titleAdminTicketEditAttachFile;
+
+    //Admin/Ticket/Edit/Update Ticket button
+    @FindBy(xpath = "//button[@class='primary-btn semi_large2 fix-gr-bg']")
+    public WebElement buttonAdminTicketEditUpdateTicket;
+
+    //Admin/Ticket/Delete/ Delete button
+    @FindBy(xpath = "//input[@class='primary-btn fix-gr-bg']")
+    public WebElement buttonAdminTicketDelete;
 }
