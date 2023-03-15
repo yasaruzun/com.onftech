@@ -5,7 +5,7 @@
     Background:
       Given User goes to "Url"
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_01   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -18,7 +18,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_02   Dashboard page, it should be verified that it redirects to the relevant page.
       Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
@@ -30,7 +30,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_03   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -43,7 +43,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_04   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -56,7 +56,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_05   Dashboard page, it should be verified that it redirects to the relevant page.
 
        Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -69,7 +69,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_06   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -82,7 +82,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_07    Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -95,7 +95,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_08   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -108,7 +108,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_09   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -121,7 +121,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_10   Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -134,7 +134,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_11  Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -147,7 +147,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_12  Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -160,7 +160,7 @@
       And logout link is click
       And closes the page
 
-    Scenario: TC_010 Dashboard page, it should be verified that it redirects to the relevant page.
+    Scenario: TC_010_13  Dashboard page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click

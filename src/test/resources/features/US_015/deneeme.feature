@@ -11,7 +11,7 @@
       Then Writes "Password" in the password box
       And  Sign in link is click
       And Dashboard link click
-      And Side Bar  Support Ticket link click
-      And  Support Ticket page is displayed
+      And Side Bar Digital Products link.click
+      And  Digital Products page is displayed
       And logout link is click
       And closes the page

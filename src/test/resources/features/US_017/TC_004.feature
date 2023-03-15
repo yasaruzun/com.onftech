@@ -8,7 +8,7 @@
 
     Scenario: TC_004_01 Number of products to be displayed on the Order page
 
-      Given User goes to "Url"
+
       Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
@@ -22,7 +22,7 @@
 
     Scenario: TC_004_02 Number of products to be displayed on the Order page
 
-      Given User goes to "Url"
+
       Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
@@ -36,7 +36,7 @@
 
     Scenario: TC_004_03 Number of products to be displayed on the Order page
 
-      Given User goes to "Url"
+
       Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
@@ -50,7 +50,7 @@
 
     Scenario: TC_004_04 Number of products to be displayed on the Order page
 
-      Given User goes to "Url"
+
       Then  Home Page is display "trendlifebuy"
       And Login link is click
       Then Writes "Username" in the user box
