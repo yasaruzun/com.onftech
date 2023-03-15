@@ -15,4 +15,4 @@
       And Product in Cart SEE ALL link click
       And Product in Cart page is displayed
       And logout link is click
-      And closes the page
+

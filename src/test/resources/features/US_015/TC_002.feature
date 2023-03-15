@@ -16,7 +16,6 @@
       And Dashboard link click
       And UserName  are displayed
       And logout link is click
-      And closes the page
 
     Scenario: TC_002_02   The dashboard  User Email address control
 
@@ -28,6 +27,6 @@
       And Dashboard link click
       And User email address are displayed
       And logout link is click
-      And closes the page
+
 
 

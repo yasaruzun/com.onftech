@@ -20,7 +20,7 @@
       And Cancel Order button is click
       And Select cancel reason window is displayed
       And logout link is click
-      And closes the page
+
 
 
 

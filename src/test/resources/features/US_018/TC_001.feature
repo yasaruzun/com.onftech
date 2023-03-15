@@ -18,7 +18,7 @@
       And  Order detail button click
       And My Order detail page is displayed
       And logout link is click
-      And closes the page
+
 
 
 

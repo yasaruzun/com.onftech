@@ -22,7 +22,7 @@
       And Select  reason and send link click
       And order is canceled is displayed
       And logout link is click
-      And closes the page
+
 
 
 

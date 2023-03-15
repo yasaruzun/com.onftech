@@ -16,7 +16,7 @@
       And Side Bar My Order link.click
       And  Prev link is enabled
       And logout link is click
-      And closes the page
+
 
     Scenario: TC_005_02 Dashboard page, it should be verified that it redirects to the relevant page.
 
@@ -29,7 +29,7 @@
       And Side Bar My Order link.click
       And  Next link is enabled
       And logout link is click
-      And closes the page
+
 
 
 

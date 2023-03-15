@@ -69,7 +69,7 @@
       And Side Bar Purchase History link.click
       And Refused cancelled order links enabled
       And logout link is click
-      And closes the page
+
 
 
 

@@ -7,4 +7,3 @@
       Then  Home Page is display "trendlifebuy"
       Then User goes to About us page
       And  Team Member text is displayed
-      And closes the page

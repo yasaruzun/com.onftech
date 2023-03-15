@@ -76,7 +76,7 @@
       And  Order detail button click
       And Delivered status  is displayed
       And logout link is click
-      And closes the page
+
 
 
 

@@ -14,7 +14,7 @@
       And Side Bar My Order link.click
       And  My Order page is displayed
       And logout link is click
-      And closes the page
+
 
 
 

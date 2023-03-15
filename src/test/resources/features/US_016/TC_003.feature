@@ -17,7 +17,7 @@
       And Side Bar Purchase History link.click
       And Order Summary is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_003_02   The Purchase History Link leads to the Order Summary
@@ -32,7 +32,7 @@
       And Side Bar Purchase History link.click
       And Order Bill is enable
       And logout link is click
-      And closes the page
+
 
 
 

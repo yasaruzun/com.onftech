@@ -17,7 +17,7 @@
       And Side Bar My Order link.click
       And  All link is enable
       And logout link is click
-      And closes the page
+
 
     Scenario: TC_002_02 Dashboard page, My Order page detail test.
 
@@ -30,7 +30,7 @@
       And Side Bar My Order link.click
       And  To Pay link is enable
       And logout link is click
-      And closes the page
+
 
     Scenario: TC_002_03 Dashboard page, My Order page detail test.
 
@@ -43,7 +43,7 @@
       And Side Bar My Order link.click
       And  To Ship link is enable
       And logout link is click
-      And closes the page
+
 
     Scenario: TC_002_04 Dashboard page, My Order page detail test.
 
@@ -56,7 +56,7 @@
       And Side Bar My Order link.click
       And   To Receive link is enable
       And logout link is click
-      And closes the page
+
 
 
 

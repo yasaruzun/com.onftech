@@ -32,7 +32,7 @@
       And  Order detail button click
       And Shipping info is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_002_03 My order Page, it should be verified that it redirects to the relevant page.
@@ -47,7 +47,7 @@
       And  Order detail button click
       And Billing info is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_002_04 My order Page, it should be verified that it redirects to the relevant page.
@@ -62,7 +62,7 @@
       And  Order detail button click
       And Payment Info is displayed
       And logout link is click
-      And closes the page
+
 
 
 

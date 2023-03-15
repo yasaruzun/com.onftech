@@ -7,4 +7,4 @@
       Then  Home Page is display "trendlifebuy"
       Then User goes to About us page
       And About us page is display
-      And closes the page
+
