@@ -9,6 +9,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.CustomerPage;
 import utilities.ConfigReader;
 
@@ -183,7 +184,7 @@ public class CustomerPageStepDefinitions {
     @And("Side Bar Giftcard link.click")
     public void sideBarGiftcardLinkClick() {
         actions=new Actions(getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         customerPage.SideBarGiftcardLink.click();     }
     @And("Giftcard page is displayed")
     public void giftcardPageIsDisplayed() {
@@ -201,7 +202,7 @@ public class CustomerPageStepDefinitions {
     @And("Side Bar My Coupons link.click")
     public void sideBarMyCouponsLinkClick() {
         actions=new Actions(getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
         customerPage.SideBarMyCuponsLink.click();     }
     @And("My Coupons page is displayed")
     public void myCouponsPageIsDisplayed() {
@@ -209,9 +210,17 @@ public class CustomerPageStepDefinitions {
     }
     @And("Side Bar Refund &Dispute link.click")
     public void sideBarRefundDisputeLinkClick() {
-        actions=new Actions(getDriver());
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
-        customerPage.SideBarRefundDisputeLink.click();     }
+        JavascriptExecutor js = (JavascriptExecutor) getDriver();
+        // Tıklanacak öğenin XPath'ini tanımlama
+        WebElement element = customerPage.SideBarRefundDisputeLink;
+       // actions.sendKeys(Keys.PAGE_DOWN).perform();
+
+        // JavaScript kodunu kullanarak öğeye tıklama işlemi yapma
+        js.executeScript("arguments[0].click();", element);
+        //actions=new Actions(getDriver());
+        //actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+       // customerPage.SideBarRefundDisputeLink.click();
+        }
     @And("Refund &Dispute page is displayed")
     public void refundDisputePageIsDisplayed() {
         Assert.assertTrue(customerPage.RefundDisputePage.isDisplayed());
@@ -230,8 +239,8 @@ public class CustomerPageStepDefinitions {
     public void sideBarDigitalProductsLinkClick() {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         // Tıklanacak öğenin XPath'ini tanımlama
-        WebElement element = customerPage.SideBarReferralLink;
-        actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
+        WebElement element = customerPage.SideBarDigitalProductsLink;
+       //actions.sendKeys(Keys.PAGE_DOWN).sendKeys(Keys.PAGE_DOWN).perform();
 
         // JavaScript kodunu kullanarak öğeye tıklama işlemi yapma
         js.executeScript("arguments[0].click();", element);     }
@@ -245,7 +254,7 @@ public class CustomerPageStepDefinitions {
 
         // Tıklanacak öğenin XPath'ini tanımlama
         WebElement element = customerPage.SideBarReferralLink;
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+       // actions.sendKeys(Keys.PAGE_DOWN).perform();
         // JavaScript kodunu kullanarak öğeye tıklama işlemi yapma
         js.executeScript("arguments[0].click();", element);      }
     @And("Referral  page is displayed")
@@ -273,7 +282,7 @@ public class CustomerPageStepDefinitions {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
 
         WebElement element = customerPage.SideBarNotificationLink;
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        //actions.sendKeys(Keys.PAGE_DOWN).perform();
 
         js.executeScript("arguments[0].click();", element);      }
     @And("Side Bar Notification page is displayed")
@@ -357,7 +366,10 @@ public class CustomerPageStepDefinitions {
     @And("Payment Info is displayed")
     public void paymentInfoIsDisplayed() {Assert.assertTrue(customerPage.MyorderPageOrderDetailPaymentInfo.isDisplayed());    }
     @And("Pending status  is displayed")
-    public void pendingStatusIsDisplayed() { Assert.assertTrue(customerPage.MyorderPageOrderDetailPendingStatus.isDisplayed());     }
+    public void pendingStatusIsDisplayed() {
+        String expectedText="Pending";
+        String actualText=customerPage.MyorderPageOrderDetailPendingStatus.getText();
+         Assert.assertEquals(expectedText,actualText);     }
     @And("Processing status  is displayed")
     public void processingStatusIsDisplayed() { Assert.assertTrue(customerPage.MyorderPageOrderDetailProcessingStatus.isDisplayed());     }
     @And("Shipped status  is displayed")
@@ -369,26 +381,69 @@ public class CustomerPageStepDefinitions {
 
     @And("Pending stage  is displayed")
     public void pendingStageIsDisplayed() {
-
-    }
+        String expectedText="Pending";
+        String actualText=customerPage.MyorderPageOrderDetailPendingStage.getText();
+        Assert.assertEquals(expectedText,actualText);     }
 
     @And("Processing stage  is displayed")
-    public void processingStageIsDisplayed() {
-
-    }
-
+    public void processingStageIsDisplayed() {  Assert.assertTrue(customerPage.MyorderPageOrderDetailProcessingStage.isDisplayed());    }
     @And("Shipped stage  is displayed")
-    public void shippedStageIsDisplayed() {
-
-    }
-
+    public void shippedStageIsDisplayed() {  Assert.assertTrue(customerPage.MyorderPageOrderDetailShippedStage.isDisplayed());     }
     @And("Received stage  is displayed")
-    public void receivedStageIsDisplayed() {
-
-    }
+    public void receivedStageIsDisplayed() {   Assert.assertTrue(customerPage.MyorderPageOrderDetailReceivedStage.isDisplayed());     }
 
     @And("Delivered stage is displayed")
-    public void deliveredStageIsDisplayed() {
+    public void deliveredStageIsDisplayed() { Assert.assertTrue(customerPage.MyorderPageOrderDetailDeliveredStage.isDisplayed());     }
+
+    @And("Cancel Order is dislayed")
+    public void cancelOrderIsDislayed() {
+        Assert.assertTrue(customerPage.MyorderPageOrderCancelOrderButton.isDisplayed());
+    }
+
+    @And("Cancel Order button is click")
+    public void cancelOrderButtonIsClick() {
+        customerPage.MyorderPageOrderCancelOrderButton.click();
+    }
+
+    @And("Select cancel reason window is displayed")
+    public void selectCancelReasonWindowIsDisplayed() {
+        Assert.assertTrue(customerPage.MyorderPageOrderCancelOrderSendButton.isDisplayed());
+    }
+
+    @And("Select  reason and send link click")
+    public void selectReasonAndSendLinkClick() {
+       // Select select=new Select(customerPage.MyorderPageOrderCancelOrderReasonOne);
+        customerPage.MyorderPageOrderCancelOrderReasonOne.sendKeys("ra.deneme");
+        customerPage.MyorderPageOrderCancelOrderSendButton.click();
+    }
+
+    @And("order is canceled is displayed")
+    public void orderIsCanceledIsDisplayed() {
+        Assert.assertTrue(customerPage.MyorderPageOrderCancelOrderOrderCancelledText.isDisplayed());
+    }
+
+    @And("Shipping info is enable")
+    public void shippingInfoIsEnable() {
+        String expectedInfo="Name";
+        String actualInfo=customerPage.MyorderPageOrderDetailShippingInfoText.getText();
+
+        Assert.assertTrue(actualInfo.contains(expectedInfo));
+    }
+
+    @And("Billing info is enable")
+    public void billingInfoIsEnable() {
+        String expectedInfo="Name";
+        String actualInfo=customerPage.MyorderPageOrderdetailBillingInfoText.getText();
+
+        Assert.assertTrue(actualInfo.contains(expectedInfo));
+    }
+
+    @And("Payment Info is enable")
+    public void paymentInfoIsEnable() {
+        String expectedInfo="Subtotal";
+        String actualInfo=customerPage.MyorderPageOrderdetailBillingInfoText.getText();
+        System.out.println(actualInfo);
+        Assert.assertTrue(actualInfo.contains(expectedInfo));
 
     }
 }

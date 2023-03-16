@@ -48,8 +48,6 @@
       And Shipped stage  is displayed
       And logout link is click
 
-
-
     Scenario: TC_004_04  Recieved stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"

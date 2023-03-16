@@ -17,7 +17,7 @@
       And  Order detail button click
       And Pending status  is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_003_02   Processing  stages related to the relevant order process are visible.
@@ -32,7 +32,7 @@
       And  Order detail button click
       And Processing status  is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_003_03  Shipped  stages related to the relevant order process are visible.
@@ -47,7 +47,7 @@
       And  Order detail button click
       And Shipped status  is displayed
       And logout link is click
-      And closes the page
+
 
 
     Scenario: TC_003_04  Recieved stages related to the relevant order process are visible.
@@ -62,7 +62,7 @@
       And  Order detail button click
       And Received status  is displayed
       And logout link is click
-      And closes the page
+
 
     Scenario: TC_003_05  Delivered stages related to the relevant order process are visible.
 
@@ -75,7 +75,7 @@
       And Side Bar My Order link.click
       And  Order detail button click
       And Delivered status  is displayed
-      And logout link is click
+
 
 
 
