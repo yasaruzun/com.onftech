@@ -16,4 +16,4 @@
       And Recharge Amount link send keys money ADD FUND link click
       Then Stripe Link is display
       And logout link is click
-      And closes the page
+

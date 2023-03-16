@@ -5,7 +5,7 @@
     Background:
       Given User goes to "Url"
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+    Scenario: TC_003_01    Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -15,9 +15,9 @@
       And Dashboard link click
       And Completed Order boards is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+
+    Scenario: TC_003_02   Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -27,9 +27,9 @@
       And Dashboard link click
       And My Wishlist boards is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+
+    Scenario: TC_003_03   Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -39,9 +39,9 @@
       And Dashboard link click
       And Refund Success boards  is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+
+    Scenario: TC_003_04   Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -51,9 +51,9 @@
       And Dashboard link click
       And Product in Cart  is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+
+    Scenario: TC_003_05    Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -63,9 +63,9 @@
       And Dashboard link click
       And Coupon Used boards  is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Boards are visible on the Dashboard page.
+
+    Scenario: TC_003_06   Boards are visible on the Dashboard page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -75,7 +75,7 @@
       And Dashboard link click
       And All Order  boards are is displayed
       And logout link is click
-      And closes the page
+
 
 
 

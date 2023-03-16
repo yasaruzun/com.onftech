@@ -15,4 +15,3 @@
       And My Wishlist SEE ALL link click
       And My Wishlist page is displayed
       And logout link is click
-      And closes the page

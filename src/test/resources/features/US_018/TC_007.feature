@@ -1,13 +1,11 @@
 
 
-  Feature: US 017 As a user, I would like to have a special dashboard page on the site to control my operations and settings on the site.
+  Feature: US 018 As a user, I would like to have a special dashboard page on the site to control my operations and settings on the site.
 
     Background:
       Given User goes to "Url"
 
-
-    Scenario: TC_004_01 Number of products to be displayed on the Order page
-
+    Scenario: TC_002_01  My Order page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -16,12 +14,11 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  number of products Last 5 is displayed
+      And  Order detail button click
+      And Shipping info is enable
       And logout link is click
 
-
-    Scenario: TC_004_02 Number of products to be displayed on the Order page
-
+    Scenario: TC_002_02 My order Page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -30,12 +27,11 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  number of products Last 10 is displayed
+      And  Order detail button click
+      And Billing info is enable
       And logout link is click
 
-
-    Scenario: TC_004_03 Number of products to be displayed on the Order page
-
+    Scenario: TC_002_03 My order Page, it should be verified that it redirects to the relevant page.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -44,29 +40,9 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  number of products Last 20 is displayed
+      And  Order detail button click
+      And Payment Info is enable
       And logout link is click
-
-
-    Scenario: TC_004_04 Number of products to be displayed on the Order page
-
-
-      Then  Home Page is display "trendlifebuy"
-      And Login link is click
-      Then Writes "Username" in the user box
-      Then Writes "Password" in the password box
-      And  Sign in link is click
-      And Dashboard link click
-      And Side Bar My Order link.click
-      And  number of products Last 40 is displayed
-      And logout link is click
-
-
-
-
-
-
-
 
 
 

@@ -6,7 +6,7 @@
 
       Given User goes to "Url"
 
-    Scenario: TC_002 Dashboard page, My Order page detail test.
+    Scenario: TC_002_01 Dashboard page, My Order page detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -17,9 +17,9 @@
       And Side Bar My Order link.click
       And  All link is enable
       And logout link is click
-      And closes the page
 
-    Scenario: TC_002 Dashboard page, My Order page detail test.
+
+    Scenario: TC_002_02 Dashboard page, My Order page detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -30,9 +30,9 @@
       And Side Bar My Order link.click
       And  To Pay link is enable
       And logout link is click
-      And closes the page
 
-    Scenario: TC_002 Dashboard page, My Order page detail test.
+
+    Scenario: TC_002_03 Dashboard page, My Order page detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -43,9 +43,9 @@
       And Side Bar My Order link.click
       And  To Ship link is enable
       And logout link is click
-      And closes the page
 
-    Scenario: TC_002 Dashboard page, My Order page detail test.
+
+    Scenario: TC_002_04 Dashboard page, My Order page detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -56,7 +56,7 @@
       And Side Bar My Order link.click
       And   To Receive link is enable
       And logout link is click
-      And closes the page
+
 
 
 

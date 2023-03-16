@@ -5,7 +5,7 @@
     Background:
       Given User goes to "Url"
 
-    Scenario: TC_003 The Purchase History Link leads to the Order Summary
+    Scenario: TC_003_01    The Purchase History Link leads to the Order Summary
 
       Given User goes to "Url"
       Then  Home Page is display "trendlifebuy"
@@ -17,10 +17,10 @@
       And Side Bar Purchase History link.click
       And Order Summary is displayed
       And logout link is click
-      And closes the page
 
 
-    Scenario: TC_003 The Purchase History Link leads to the Order Summary
+
+    Scenario: TC_003_02   The Purchase History Link leads to the Order Summary
 
 
       Then  Home Page is display "trendlifebuy"
@@ -32,7 +32,7 @@
       And Side Bar Purchase History link.click
       And Order Bill is enable
       And logout link is click
-      And closes the page
+
 
 
 

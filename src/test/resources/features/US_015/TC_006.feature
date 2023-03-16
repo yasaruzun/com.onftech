@@ -15,4 +15,4 @@
       And Purchase SEE ALL link click
       And  Purchase History page is displayed
       And logout link is click
-      And closes the page
+

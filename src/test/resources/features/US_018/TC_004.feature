@@ -1,11 +1,11 @@
 
 
-  Feature: US 017 As a user, I would like to have a special dashboard page on the site to control my operations and settings on the site.
+  Feature: US 018 As a user, I would like to have a page where I can see the order details in order to follow the latest status of my orders.
 
-    Background: User goes to Url
+    Background:
       Given User goes to "Url"
 
-    Scenario: TC_003_01 Dashboard page, My Order page order detail test.
+    Scenario: TC_004_01  Pending stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -14,11 +14,13 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  Order ID is displayed
+      And  Order detail button click
+      And Pending stage  is displayed
       And logout link is click
 
 
-    Scenario: TC_003_02 Dashboard page, My Order page order detail test.
+
+    Scenario: TC_004_02   Processing  stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -27,12 +29,13 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And   Status is displayed
+      And  Order detail button click
+      And Processing stage  is displayed
       And logout link is click
 
 
 
-    Scenario: TC_003_03 Dashboard page, My Order page order detail test.
+    Scenario: TC_004_03  Shipped  stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -41,11 +44,11 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  Order date is displayed
+      And  Order detail button click
+      And Shipped stage  is displayed
       And logout link is click
 
-
-    Scenario: TC_003_04 Dashboard page, My Order page order detail test.
+    Scenario: TC_004_04  Recieved stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -54,11 +57,12 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  Order Amount is displayed
+      And  Order detail button click
+      And Received stage  is displayed
       And logout link is click
 
 
-    Scenario: TC_003_05 Dashboard page, My Order page order detail test.
+    Scenario: TC_004_05  Delivered stages related to the relevant order process are visible.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -67,8 +71,10 @@
       And  Sign in link is click
       And Dashboard link click
       And Side Bar My Order link.click
-      And  Paid By is displayed
+      And  Order detail button click
+      And Delivered stage is displayed
       And logout link is click
+
 
 
 

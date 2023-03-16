@@ -7,4 +7,3 @@
       Then  Home Page is display "trendlifebuy"
       Then User goes to About us page
       And  Online Shopping Easy Cost-Efficient text is displayed
-      And closes the page
