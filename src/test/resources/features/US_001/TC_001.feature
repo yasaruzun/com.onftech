@@ -5,6 +5,6 @@ Feature:US_001 Home page must be accessed by a user
 
     Given go to the "userUrl"
     Then  test that the url contains "trendlifebuy"
-    Then  close the page
+
 
 

@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -23,37 +24,55 @@ public class HomePage {
      public WebElement appStoreLinki;
      @FindBy(xpath="(//div[@class='close_modal'])[1]")
      public WebElement subscribeQuick;
+     @FindBy(xpath = "//span[text()='Track Your Order']")
+     public WebElement trackYourOrderLink;
+     @FindBy(xpath = "//button[text()='Track Now']")
+     public WebElement trackNowButton;
 
+     @FindBy(xpath="//a[@href='https://qa.trendlifebuy.com/compare']")
+     public WebElement compareButton;
 
+    @FindBy(xpath = "(//a[@href='https://qa.trendlifebuy.com/login'])[1]")
+    public WebElement loginButton;
 
+    @FindBy(xpath = "//input[@name='login']")
+    public WebElement emailSpace;
 
+    @FindBy(xpath = "//input[@name='password']")
+    public WebElement passwordSpace;
 
+    @FindBy(xpath = "//button[text()='Sign In']")
+    public WebElement signInButton;
 
+    @FindBy(xpath = "//span[text()='Wishlist (']")
+    public WebElement wishlistButton;
 
+    @FindBy(xpath = "//span[text()='Cart (']")
+    public WebElement cartButton;
 
+    @FindBy(xpath = "//div[@class='logo_img']")
+    public WebElement logobutton;
 
+    @FindBy(xpath = "(//input[@id='inlineFormInputGroup'])[1]")
+    public WebElement seachBox;
 
+    @FindBy(xpath = "//button[text()='Filter']")
+    public WebElement filterButton;
 
+    @FindBy(xpath = "//h3[@class='branding_text']")
+    public WebElement brandingText;
 
+    @FindBy(xpath = "//a[text()='/ Register']")
+    public WebElement registerButton;
 
+    @FindBy(xpath = "//h3[text()='Sign Up']")
+    public WebElement signUp;
 
+    @FindBy(xpath = "(//a[text()='Home'])[1]")
+    public WebElement homeButton;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "(//a[text()='Blog'])[1]")
+    public WebElement blogButton;
 
 
 

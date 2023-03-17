@@ -9,6 +9,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import pages.CustomerPage;
+import pages.HomePage;
 import utilities.ConfigReader;
 
 import utilities.Driver;
@@ -22,7 +23,7 @@ import static org.junit.Assert.assertEquals;
 public class CustomerPageStepDefinitions {
 
    CustomerPage customerPage=new CustomerPage();
-
+    HomePage homePage= new HomePage();
    Actions actions ;
 
 
@@ -343,4 +344,17 @@ public class CustomerPageStepDefinitions {
     public void orderAmountIsDisplayed() { Assert.assertTrue(customerPage.MyorderPageOrderAmountLink.isDisplayed());    }
     @And("Paid By is displayed")
     public void paidByIsDisplayed() { Assert.assertTrue(customerPage.MyorderPagePaidbyLink.isDisplayed());    }
+
+    @Then("click the cart button")
+    public void clickTheCartButton() {
+        homePage= new HomePage();
+        homePage.cartButton.click();
+    }
+
+    @Then("test that relevant web site's title contains cart")
+    public void testThatRelevantWebSiteSTitleContainsCart() {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl="cart";
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+    }
 }

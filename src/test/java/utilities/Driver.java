@@ -46,8 +46,9 @@ public class Driver {
                     driver = new FirefoxDriver();
                     break;
                 default:
+                    ops.addArguments("--remote-allow-origins=*");
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(ops);
 
 
             }

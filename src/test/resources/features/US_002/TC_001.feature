@@ -12,4 +12,4 @@
       Then  click to the apple store link
       Then  wait 1 second
       And   test that it should be redirected to apple store page
-      Then  close the page
+

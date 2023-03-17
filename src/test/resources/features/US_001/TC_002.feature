@@ -6,4 +6,3 @@
 
       Given go to the "userUrl"
       Then  confirm that the title is Trendlifebuy Online Shopping
-      Then close the page

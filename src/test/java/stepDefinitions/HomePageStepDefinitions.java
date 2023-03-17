@@ -1,20 +1,25 @@
 package stepDefinitions;
 
+import com.google.j2objc.annotations.Weak;
 import io.cucumber.java.en.*;
 import io.cucumber.java.en.*;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+
+import javax.swing.*;
 
 
 public class HomePageStepDefinitions {
 
 
     HomePage homePage = new HomePage();
-
+    Actions actions=new Actions(Driver.getDriver());
     @Given("go to the {string}")
     public void go_to_the(String istenenUrl) {
         homePage = new HomePage();
@@ -247,6 +252,152 @@ public class HomePageStepDefinitions {
 
             Assert.assertEquals(expectedTitle,actualTitle);
 
+
+    }
+
+            @Then("click the Track Your Order link")
+            public void clickTheTrackYourOrderLink() {
+            homePage = new HomePage();
+            homePage.trackYourOrderLink.click();
+
+    }
+
+            @Then("test that the Track Now Link is visible")
+            public void testThatTheTrackNowLinkIsVisible() {
+            homePage = new HomePage();
+            WebElement tracknowButton= homePage.trackNowButton;
+            Assert.assertTrue(tracknowButton.isDisplayed());
+    }
+
+            @Then("click the compare button")
+             public void clickTheCompareButton() {
+            homePage = new HomePage();
+            homePage.compareButton.click();
+    }
+
+    @Then("test that relevant web site's title contains compare")
+    public void testThatRelevantWebSiteSTitleContainsCompare() {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl="compare";
+
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+
+    }
+    @Then("click the login button")
+    public void click_the_login_button() {
+        homePage = new HomePage();
+        homePage.loginButton.click();
+
+    }
+    @Then("enter the email and password")
+    public void enter_the_email_and_password() {
+        homePage = new HomePage();
+        homePage.emailSpace.sendKeys(ConfigReader.getProperty("user09Email"));
+        homePage.passwordSpace.sendKeys(ConfigReader.getProperty("user09Password"));
+
+    }
+    @Then("click the sign in button")
+    public void click_the_sign_in_button() {
+        homePage = new HomePage();
+        homePage.signInButton.click();
+
+    }
+    @Then("click the wishlist button")
+    public void click_the_wishlist_button() {
+        homePage = new HomePage();
+        homePage.wishlistButton.click();
+
+    }
+    @Then("test that relevant web site's title contains wishlist")
+    public void test_that_relevant_web_site_s_title_contains_wishlist() {
+        homePage = new HomePage();
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl="wishlist";
+        Assert.assertTrue(actualUrl.contains(expectedUrl));
+
+    }
+
+    @Then("click to the logo")
+    public void clickToTheLogo() {
+        homePage = new HomePage();
+        homePage.logobutton.click();
+    }
+
+    @Then("test that the current url is homepage")
+    public void testThatTheCurrentUrlIsHomepage() {
+        homePage = new HomePage();
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl=ConfigReader.getProperty("userUrl");
+
+        Assert.assertEquals(expectedUrl,actualUrl);
+
+    }
+
+    @Then("enter {string} in search box and press the enter")
+    public void enterInSearchBoxAndPressTheEnter(String wantedProduct) {
+        homePage = new HomePage();
+        homePage.seachBox.sendKeys(ConfigReader.getProperty(wantedProduct)+Keys.ENTER);
+
+
+    }
+
+
+    @Then("test that the brandingText contains {string}")
+    public void testThatTheBrandingTextContains(String wantedProduct) {
+        homePage = new HomePage();
+        String actualKelime=homePage.brandingText.getText().toLowerCase();
+        String expectedKelime=ConfigReader.getProperty("wantedProduct");
+
+        Assert.assertTrue(actualKelime.contains(expectedKelime));
+
+    }
+
+    @Then("test that sign in button is visible")
+    public void testThatSignInButtonIsVisible() {
+        homePage = new HomePage();
+        Assert.assertTrue(homePage.signInButton.isDisplayed());
+
+    }
+
+    @Then("click the register button")
+    public void clickTheRegisterButton() {
+        homePage = new HomePage();
+        homePage.registerButton.click();
+
+    }
+
+    @And("test that the sign up should be visible")
+    public void testThatTheSignUpShouldBeVisible() {
+        homePage = new HomePage();
+        Assert.assertTrue(homePage.signUp.isDisplayed());
+
+    }
+
+    @And("click the home button")
+    public void clickTheHomeButton() {
+        homePage = new HomePage();
+        homePage.homeButton.click();
+    }
+
+    @And("test that the home button should redirect to the relevant page")
+    public void testThatTheHomeButtonShouldRedirectToTheRelevantPage() {
+
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedUrl=ConfigReader.getProperty("userUrl");
+        Assert.assertEquals(expectedUrl,actualUrl);
+    }
+
+    @And("click the blog button")
+    public void clickTheBlogButton() {
+        homePage = new HomePage();
+        homePage.blogButton.click();
+    }
+
+    @And("test that the blog button should redirect to the relevant page")
+    public void testThatTheBlogButtonShouldRedirectToTheRelevantPage() {
+        String actualUrl=Driver.getDriver().getCurrentUrl();
+        String expectedKelime="blog";
+        Assert.assertTrue(actualUrl.contains(expectedKelime));
 
     }
 }
