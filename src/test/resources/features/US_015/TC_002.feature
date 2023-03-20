@@ -6,7 +6,7 @@
 
       Given User goes to "Url"
 
-    Scenario: TC_002 The dashboard UserName control
+    Scenario: TC_002_01  The dashboard UserName control
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -16,9 +16,8 @@
       And Dashboard link click
       And UserName  are displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_002 The dashboard  User Email address control
+    Scenario: TC_002_02   The dashboard  User Email address control
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -28,6 +27,6 @@
       And Dashboard link click
       And User email address are displayed
       And logout link is click
-      And closes the page
+
 
 

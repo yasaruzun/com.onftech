@@ -169,5 +169,148 @@ public class CustomerPage {
     public WebElement MyorderPagePaidbyLink;
     @FindBy(xpath = "//div[@ class='nice-select amaz_select5'] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Numberofproducts
     public WebElement MyorderPageNumberofproductsLink;
+    @FindBy(xpath = "(//i [@class='fas fa-chevron-left'])[1] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Prev link
+    public WebElement MyorderPagePrevLink;
+    @FindBy(xpath = "(//a[@ class='arrow_btns d-inline-flex align-items-center justify-content-center' ])[1] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>NextLinks
+    public WebElement MyorderPageNextLink;
+    @FindBy(xpath = "//div[@ class='order_details_progress '] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>order detail progress
+    public WebElement MyorderPageOrderDetailProgress;
+    @FindBy(xpath = "(//h4[@ class='font_16 f_w_500 m-0 text-nowrap'])[2] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>PackagePrice
+    public WebElement MyorderPageOrderDetailPackagePrice;
+    @FindBy(xpath = "(//h4[@ class='font_16 f_w_700 text-nowrap m-0 theme_hover'])[2] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Shipping info
+    public WebElement MyorderPageOrderDetailShippingInfo;
+    @FindBy(xpath = "(//h4[@ class='font_16 f_w_700 text-nowrap m-0 theme_hover'])[3]  ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Billing info
+    public WebElement MyorderPageOrderdetailBillingInfo;
+    @FindBy(xpath = "(//div[@ class='order_text_head d-flex align-items-center justify-content-between font_14 f_w_500 '])[17] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Payment info
+    public WebElement MyorderPageOrderDetailPaymentInfo;
+    @FindBy(xpath = "(//div [@class='single_order_progress position-relative d-flex align-items-center flex-column'])[1] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>pending status
+    public WebElement MyorderPageOrderDetailPendingStatus;
+    @FindBy(xpath = "(//div [@class='single_order_progress position-relative d-flex align-items-center flex-column'])[2] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>processing status
+    public WebElement MyorderPageOrderDetailProcessingStatus;
+    @FindBy(xpath = "(//div [@class='single_order_progress position-relative d-flex align-items-center flex-column'])[3] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Shippedstatus
+    public WebElement MyorderPageOrderDetailShippedStatus;
+    @FindBy(xpath = "(//div [@class='single_order_progress position-relative d-flex align-items-center flex-column'])[4] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Receivedstatus
+    public WebElement MyorderPageOrderDetailReceivedStatus;
+    @FindBy(xpath = "(//div [@class='single_order_progress position-relative d-flex align-items-center flex-column'])[5] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>delivered status
+    public WebElement MyorderPageOrderDetailDeliveredStatus;
+    @FindBy(xpath = " (//h4[@ class='font_20 f_w_700 mb-2'])[1]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>PENDING Stage
+    public WebElement MyorderPageOrderDetailPendingStage;
+    @FindBy(xpath = "(//h4[@ class='font_20 f_w_700 mb-2'])[2]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>processing stage
+    public WebElement MyorderPageOrderDetailProcessingStage;
+    @FindBy(xpath = " (//h4[@ class='font_20 f_w_700 mb-2'])[3]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>shipped stage
+    public WebElement MyorderPageOrderDetailShippedStage;
+    @FindBy(xpath = " (//h4[@ class='font_20 f_w_700 mb-2'])[5]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>delivered stage
+    public WebElement MyorderPageOrderDetailDeliveredStage;
+    @FindBy(xpath = "(//h4[@ class='font_20 f_w_700 mb-2'])[4] ")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>delivered stage
+    public WebElement MyorderPageOrderDetailReceivedStage;
+    @FindBy(xpath = "//a[text()='Cancel Order']")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>CancelOrderButton
+    public WebElement MyorderPageOrderCancelOrderButton;
+    @FindBy(xpath = "//div[@ class='nice-select primary_input3 radius_3px style6' ]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>CancelOrderButton>Reason one
+    public WebElement MyorderPageOrderCancelOrderReasonOne;
+    @FindBy(xpath = "(//button[@class='home10_primary_btn2 text-center f_w_700'])[1]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>CancelOrderButton>Send button
+    public WebElement MyorderPageOrderCancelOrderSendButton;
+
+    @FindBy(xpath = "//h5[@ class='text-danger mt_20 w-100 text-center']")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>CancelOrderButton>Send button
+    public WebElement MyorderPageOrderCancelOrderOrderCancelledText;
+    @FindBy(xpath = "(//div[@ class='summery_lists flex-fill'])[1]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Shipping info text
+    public WebElement MyorderPageOrderDetailShippingInfoText;
+    @FindBy(xpath = "(//div[@ class='summery_lists flex-fill'])[2]")   // /HomePage >Sign In> Sign in buton> DashboardScreen>My order page>Orderdetail>Billing info text
+    public WebElement MyorderPageOrderdetailBillingInfoText;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

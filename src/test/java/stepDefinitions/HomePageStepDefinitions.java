@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+
 import com.google.j2objc.annotations.Weak;
 import io.cucumber.java.en.*;
 import io.cucumber.java.en.*;
@@ -8,10 +9,22 @@ import io.cucumber.java.en_old.Ac;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.github.javafaker.Faker;
+import io.cucumber.java.en.*;
+import io.cucumber.java.en.*;
+
+import org.junit.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+
 import org.openqa.selenium.interactions.Actions;
 import pages.HomePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
+
+import static org.junit.Assert.*;
 
 import javax.swing.*;
 
@@ -23,18 +36,22 @@ public class HomePageStepDefinitions {
 
     HomePage homePage = new HomePage();
     Actions actions=new Actions(Driver.getDriver());
+    Faker faker = new Faker();
+
+
+
     @Given("go to the {string}")
     public void go_to_the(String istenenUrl) {
-        homePage = new HomePage();
-        Driver.getDriver().get(ConfigReader.getProperty(istenenUrl));
+
+        Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
 
     }
 
     @Then("test that the url contains {string}")
     public void testThatTheUrlContains(String istenenkelime) {
-        homePage = new HomePage();
+
         String actualUrl = Driver.getDriver().getCurrentUrl();
-        Assert.assertTrue(actualUrl.contains(istenenkelime));
+        assertTrue(actualUrl.contains(istenenkelime));
 
     }
 
@@ -50,42 +67,404 @@ public class HomePageStepDefinitions {
         Driver.getDriver().get(ConfigReader.getProperty("userUrl"));
     }
 
-        @Given("User goes to Url")
-        public void user_goes_to_url () {
-            // Write code here that turns the phrase above into concrete actions
-            throw new io.cucumber.java.PendingException();
+    @Given("User goes to Url")
+    public void user_goes_to_url() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+
+    }
+
+    @Given("Home Page is display {string}")
+    public void home_page_is_display(String expectUrl) {
+        homePage = new HomePage();
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        Assert.assertTrue(actualUrl.contains(expectUrl));
+
+    }
+
+
+    @Then("About us page is display")
+    public void about_us_page_is_display() {
+
+        String expected = "about";
+        String actual = Driver.getDriver().getCurrentUrl();
+
+
+    }
+
+    @And("click register button on the top right")
+    public void clickRegisterButtonOnTheTopRight() {
+        homePage.bottonRegister.click();
+    }
+
+    @And("verify access to the sign up page")
+    public void verifyAccessToTheSignUpPage() {
+        assertTrue(homePage.textSignUp.isDisplayed());
+    }
+
+    @And("click on first name and enter a single letter")
+    public void clickOnFirstNameAndEnterASingleLetter() {
+        homePage.sectionFirstName.sendKeys("a");
+
+    }
+
+    @And("click on last name and enter a single letter")
+    public void clickOnLastNameAndEnterASingleLetter() {
+        homePage.sectionLastName.sendKeys("a");
+
+    }
+
+    @And("click the Sign Up button at the bottom of the page")
+    public void clickTheSignUpButtonAtTheBottomOfThePage() {
+        homePage.sectionFirstName.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.buttonSignUp.click();
+    }
+
+    @And("click on first name and enter a valid first name")
+    public void clickOnFirstNameAndEnterAValidFirstName() {
+        homePage.sectionFirstName.sendKeys("Everest");
+    }
+
+    @And("verify that the warning {string} isn't seen")
+    public void verifyThatTheWarningIsnTSeen(String arg0) {
+        assertFalse(homePage.missingFirstNameWarning.isDisplayed());
+    }
+
+    @And("click on email and Enter an email address without the @ sign and verify that the warning {string} is displayed")
+    public void clickOnEmailAndEnterAnEmailAddressWithoutTheSignAndVerifyThatTheWarningIsDisplayed(String arg0) {
+        homePage.sectionEmail.sendKeys(ConfigReader.getProperty("missingEmail"));
+        ReusableMethods.bekle(2);
+        homePage.sectionEmail.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+
+        homePage.buttonSignUp.click();
+        assertTrue(homePage.missingEmailWarning.isDisplayed());
+
+    }
+
+    @And("enter a valid email adress and verify that no warnings has been displayed")
+    public void enterAValidEmailAdressAndVerifyThatNoWarningsHasBeenDisplayed() {
+
+        homePage.sectionEmail.clear();
+        ReusableMethods.bekle(2);
+        homePage.sectionEmail.sendKeys(faker.internet().emailAddress());
+        ReusableMethods.bekle(2);
+        homePage.sectionEmail.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.buttonSignUp.click();
+        assertFalse(homePage.missingEmailWarning.isDisplayed());
+
+    }
+
+    @And("enter an any {int}-character password ın the password sectıon and confırm password sectıon and verıfy that the warnıng ıs dısplayed")
+    public void enterAnAnyCharacterPasswordInThePasswordSectıonAndConfırmPasswordSectıonAndVerıfyThatTheWarnıngIsDısplayed(int arg0) {
+        homePage.sectionPassword.sendKeys(ConfigReader.getProperty("wrongPassword"));
+        homePage.sectionConfirmPassword.sendKeys(ConfigReader.getProperty("wrongPassword"));
+
+        ReusableMethods.bekle(2);
+        homePage.sectionEmail.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.buttonSignUp.click();
+        assertTrue(homePage.wrongPasswordWarning.isDisplayed());
+        ReusableMethods.bekle(2);
+    }
+
+    @And("enter a password in the password and confirm password section according to minimum of {int} characters and a combination of uppercase letters, lowercase letters, numbers, or symbols specifications")
+    public void enterAPasswordInThePasswordAndConfirmPasswordSectionAccordingToMinimumOfCharactersAndACombinationOfUppercaseLettersLowercaseLettersNumbersOrSymbolsSpecifications(int arg0) {
+
+        homePage.sectionPassword.sendKeys(ConfigReader.getProperty("user003Password"));
+        homePage.sectionConfirmPassword.sendKeys(ConfigReader.getProperty("user003Password"));
+
+    }
+
+    @And("click the sign up checkbox at the bottom of the page and verify the warning is displayed at right up corner on the page")
+    public void clickTheSignUpCheckboxAtTheBottomOfThePageAndVerifyTheWarningIsDisplayedAtRightUpCornerOnThePage() {
+        homePage.sectionEmail.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.checkboxSigningUp.click();
+        homePage.buttonSignUp.click();
+        assertTrue(homePage.privacyError.isDisplayed());
+    }
+
+    @And("click the checkbox related to {string} and click the sign up button")
+    public void clickTheCheckboxRelatedToAndClickTheSignUpButton(String arg0) {
+        homePage.sectionEmail.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.checkboxSigningUp.click();
+        homePage.buttonSignUp.click();
+//        assertFalse(homePage.privacyError.isDisplayed());
+    }
+
+    @And("enter the required information according to the criteria and click the signup button")
+    public void enterTheRequiredInformationAccordingToTheCriteriaAndClickTheSignupButton() {
+        homePage.sectionFirstName.sendKeys(faker.name().firstName());
+        homePage.sectionLastName.sendKeys(faker.name().lastName());
+        homePage.sectionEmail.sendKeys(faker.internet().emailAddress());
+        homePage.sectionPassword.sendKeys(ConfigReader.getProperty("user003Password"));
+        homePage.sectionConfirmPassword.sendKeys(ConfigReader.getProperty("user003Password"));
+        homePage.sectionConfirmPassword.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        homePage.buttonSignUp.click();
+
+
+    }
+
+    @And("verifies that the record information is navigated to the appropriate dashboard")
+    public void verifiesThatTheRecordInformationIsNavigatedToTheAppropriateDashboard() {
+
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("/dashboard"));
+    }
+
+    @And("verify that the {string} at the bottom of the page is visible")
+    public void verifyThatTheAtTheBottomOfThePageIsVisible(String arg0) {
+        homePage.sectionConfirmPassword.sendKeys(Keys.PAGE_DOWN);
+        assertTrue(homePage.linkSignIn.isDisplayed());
+    }
+
+    @And("click the {string} link and verify that link leads to the relevant page")
+    public void clickTheLinkAndVerifyThatLinkLeadsToTheRelevantPage(String arg0) {
+        ReusableMethods.bekle(2);
+        homePage.linkSignIn.click();
+        assertTrue(homePage.textSignIn.isDisplayed());
+    }
+
+    @And("verify that the warning {string} is seen")
+    public void verifyThatTheWarningIsSeen(String arg0) {
+        assertFalse(homePage.missingLastNameWarning.isDisplayed());
+    }
+
+
+    @And("click login button")
+    public void clickLoginButton() {
+        homePage.linkLogin.click();
+    }
+
+    @And("enter email address and password information then click the sign in button")
+    public void enterEmailAddressAndPasswordInformationThenClickTheSignInButton() {
+        homePage.sectionLoginEmail.sendKeys(ConfigReader.getProperty("user003Email"));
+        homePage.sectionLoginPassword.sendKeys(ConfigReader.getProperty("user003Password"));
+        homePage.buttonLoginSignIn.click();
+    }
+
+    @And("select the products on the homepage and click on it")
+    public void selectTheProductsOnTheHomepageAndClickOnIt() {
+        ReusableMethods.bekle(5);
+        homePage.AboutUsLink.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(3);
+        ReusableMethods.hover(homePage.firstProduct);
+        homePage.iconCompareFirstElement.click();
+        ReusableMethods.hover(homePage.secondProduct);
+        ReusableMethods.bekle(1);
+        homePage.iconCompareSecondElement.click();
+        ReusableMethods.bekle(2);
+
+    }
+
+    @And("Verifies that images and content information of products added to the compare page are displayed side by side")
+    public void verifiesThatImagesAndContentInformationOfProductsAddedToTheComparePageAreDisplayedSideBySide() {
+        ReusableMethods.bekle(5);
+        homePage.linkComparePage.click();
+        assertTrue(homePage.compareProduct1.isDisplayed());
+        assertTrue(homePage.compareProduct2.isDisplayed());
+    }
+
+    @And("click the Reset button and verified that the products selected for comparision are deleted from the Compare page")
+    public void clickTheResetButtonAndVerifiedThatTheProductsSelectedForComparisionAreDeletedFromTheComparePage() {
+        ReusableMethods.bekle(5);
+        homePage.linkComparePage.click();
+        ReusableMethods.bekle(2);
+        homePage.buttonResetCompare.click();
+        assertTrue(homePage.textCompareListEmpty.isDisplayed());
+
+
+    }
+
+
+    @And("add to cart by hovering over a product selected on the")
+    public void addToCartByHoveringOverAProductSelectedOnThe() {
+        ReusableMethods.bekle(5);
+        homePage.AboutUsLink.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(3);
+        ReusableMethods.hover(homePage.firstProduct);
+        homePage.linkAddToCartFirstProduct.click();
+        ReusableMethods.bekle(5);
+        homePage.buttonCloseCart.click();
+        ReusableMethods.hover(homePage.secondProduct);
+        ReusableMethods.bekle(1);
+        homePage.linkAddToCartSecondProduct.click();
+        ReusableMethods.bekle(2);
+    }
+
+    @And("click on View Cart on the incoming screen")
+    public void clickOnViewCartOnTheIncomingScreen() {
+        homePage.buttonViewCart.click();
+    }
+
+    @Then("Verified that the texts Shipping charge free from, Order Summary, Subtotal,Shipping Charge,Discount,VAT-TAX-GST and Total are visible")
+    public void verifiedThatTheTextsShippingChargeFreeFromOrderSummarySubtotalShippingChargeDiscountVATTAXGSTAndTotalAreVisible() {
+        ReusableMethods.bekle(3);
+        assertTrue(homePage.textShippingCargeFreeFrom.isDisplayed());
+        homePage.AboutUsLink.sendKeys(Keys.PAGE_DOWN);
+        ReusableMethods.bekle(2);
+        assertTrue(homePage.textOrderSummary.isDisplayed());
+        assertTrue(homePage.textSubtotal.isDisplayed());
+        assertTrue(homePage.textShippingCharge.isDisplayed());
+        assertTrue(homePage.textDiscount.isDisplayed());
+        assertTrue(homePage.textVATTAXGST.isDisplayed());
+        assertTrue(homePage.textTotal.isDisplayed());
+
+
+    }
+
+    @And("the desired number of products can be increased or decreased by clicking on +, - in the quantity section")
+    public void theDesiredNumberOfProductsCanBeIncreasedOrDecreasedByClickingOnInTheQuantitySection() {
+        ReusableMethods.bekle(2);
+        String firstSituation = homePage.sectionQuantity.getText();
+        homePage.buttonQuantityPlus.click();
+        ReusableMethods.bekle(2);
+        String secondSituation = homePage.sectionQuantity.getText();
+        ReusableMethods.bekle(2);
+        assertNotSame(firstSituation, secondSituation);
+    }
+
+    @And("the desired number of products should be entered by clicking on the quantity section")
+    public void theDesiredNumberOfProductsShouldBeEnteredByClickingOnTheQuantitySection() {
+        homePage.sectionQuantity.sendKeys("4");
+        String firstSituation = (homePage.sectionQuantity.getText());
+        assertSame(firstSituation, 4);
+
+    }
+
+    @And("verified that the product price changes when the number of products in the quantity section changes")
+    public void verifiedThatTheProductPriceChangesWhenTheNumberOfProductsInTheQuantitySectionChanges() {
+
+        String firstSituation = homePage.textTotalPrice.getText();
+        homePage.buttonQuantityMinus.click();
+        String secondSituation = homePage.textTotalPrice.getText();
+
+        assertNotSame(firstSituation, secondSituation);
+
+    }
+
+    @And("verified that the unit price of the product and the amount of discount, if any, are written in the Price section.")
+    public void verifiedThatTheUnitPriceOfTheProductAndTheAmountOfDiscountIfAnyAreWrittenInThePriceSection() {
+        assertTrue(homePage.sectionUnitPrice.isDisplayed());
+    }
+
+    @And("click on the Proceed To Checkout button and verified that redirect to the relevant page")
+    public void clickOnTheProceedToCheckoutButtonAndVerifiedThatRedirectToTheRelevantPage() {
+        ReusableMethods.bekle(2);
+        homePage.AboutUsLink.sendKeys(Keys.PAGE_DOWN);
+        homePage.buttonProceedToCheckout.click();
+        assertTrue(Driver.getDriver().getCurrentUrl().contains("checkout"));
+    }
+
+    @And("click to Continue Shopping button and verify that redirect to the home page")
+    public void clickToContinueShoppingButtonAndVerifyThatRedirectToTheHomePage() {
+        ReusableMethods.bekle(2);
+        homePage.AboutUsLink.sendKeys(Keys.PAGE_DOWN);
+        homePage.buttonContinueShopping.click();
+        assertEquals(Driver.getDriver().getCurrentUrl(), ConfigReader.getProperty("userUrl"));
+    }
+
+    @And("click the delete icon in the remove section and verify that the product in the cart has been deleted")
+    public void clickTheDeleteIconInTheRemoveSectionAndVerifyThatTheProductInTheCartHasBeenDeleted() {
+        homePage.buttonDelete.click();
+        ReusableMethods.bekle(5);
+        homePage.buttonCloseShoppingCart.click();
+        ReusableMethods.bekle(2);
+        homePage.buttonDelete.click();
+        assertTrue(homePage.textNoProductFound.isDisplayed());
+
+
+    }
+
+
+    //   }
+
+    @Then("closes the page")
+    public void closes_the_page() {
+
+        Driver.closeDriver();
+
+    }
+
+
+    @Then("User goes to About us page")
+    public void userGoesToAboutUsPage() {
+        homePage.AboutUsLink.click();
+    }
+
+    @Then("confirm that the title is Trendlifebuy Online Shopping")
+    public void confirmThatTheTitleIsTrendlifebuyOnlineShopping() {
+
+        String actualTitle = Driver.getDriver().getTitle();
+        String expectedTitle = "Trendlifebuy Online Shopping";
+
+        Assert.assertEquals(expectedTitle, actualTitle);
+
+    }
+
+    @Then("click to the Play Store link")
+    public void click_to_the_play_store_link() {
+
+        homePage.playStoreLinki.click();
+
+    }
+
+    @Then("test that it should be redirected to play store page")
+    public void test_that_it_should_be_redirected_to_play_store_page() {
+
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://play.google.com/store/games";
+        Assert.assertEquals(expectedUrl, actualUrl);
+
+    }
+
+    @Then("nagigate back to the home page from play store page")
+    public void nagigate_back_to_the_home_page_from_play_store_page() {
+
+        Driver.getDriver().navigate().back();
+
+    }
+
+    @Then("wait {int} second")
+    public void wait_second(int saniye) {
+
+        try {
+            Thread.sleep(1000 * saniye);
+        } catch (InterruptedException e) {
 
         }
 
-        @Given("Home Page is display {string}")
-        public void home_page_is_display (String expectUrl){
-            homePage = new HomePage();
-            String actualUrl = Driver.getDriver().getCurrentUrl();
-            Assert.assertTrue(actualUrl.contains(expectUrl));
+    }
 
-        }
+    @Then("click to the apple store link")
+    public void click_to_the_apple_store_link() {
 
+        homePage.appStoreLinki.click();
 
-        @Then("About us page is display")
-        public void about_us_page_is_display () {
+    }
 
-            String expected = "about";
-            String actual = Driver.getDriver().getCurrentUrl();
+    @Then("test that it should be redirected to apple store page")
+    public void test_that_it_should_be_redirected_to_apple_store_page() {
 
-        }
-
-        @Then("closes the page")
-        public void closes_the_page () {
-            homePage = new HomePage();
-            Driver.closeDriver();
-
-        }
+        String actualUrl = Driver.getDriver().getCurrentUrl();
+        String expectedUrl = "https://www.apple.com/app-store/";
+        Assert.assertEquals(expectedUrl, actualUrl);
 
 
-        @Then("User goes to About us page")
-        public void userGoesToAboutUsPage () {
-            homePage.AboutUsLink.click();
-        }
+    }
+
+    @And("click subscribe quick")
+    public void clickSubscribeQuick() {
+        homePage=new HomePage();
+        homePage.subscribeQuick.click();
+
+    }
+
+
 
         @And("QUALITY AND REASONABLE PRICES text is display")
         public void qualıtyANDREASONABLEPRICESTextIsDisplay () {
@@ -178,75 +557,6 @@ public class HomePageStepDefinitions {
         public void sendMessage () {
             homePage.buttonSendMessage.click();}
 
-            @Then("confirm that the title is Trendlifebuy Online Shopping")
-            public void confirmThatTheTitleIsTrendlifebuyOnlineShopping () {
-                homePage = new HomePage();
-                String actualTitle = Driver.getDriver().getTitle();
-                String expectedTitle = "Trendlifebuy Online Shopping";
-
-                Assert.assertEquals(expectedTitle, actualTitle);
-
-            }
-
-            @Then("click to the Play Store link")
-            public void click_to_the_play_store_link () {
-                homePage = new HomePage();
-                homePage.playStoreLinki.click();
-
-            }
-
-            @Then("test that it should be redirected to play store page")
-            public void test_that_it_should_be_redirected_to_play_store_page () {
-                homePage = new HomePage();
-                String actualUrl = Driver.getDriver().getCurrentUrl();
-                String expectedUrl = "https://play.google.com/store/games";
-                Assert.assertEquals(expectedUrl, actualUrl);
-
-            }
-
-            @Then("nagigate back to the home page from play store page")
-            public void nagigate_back_to_the_home_page_from_play_store_page () {
-                homePage = new HomePage();
-                Driver.getDriver().navigate().back();
-
-            }
-
-            @Then("wait {int} second")
-            public void wait_second ( int saniye){
-                homePage = new HomePage();
-                try {
-                    Thread.sleep(1000 * saniye);
-                } catch (InterruptedException e) {
-
-                }
-
-            }
-
-            @Then("click to the apple store link")
-            public void click_to_the_apple_store_link () {
-                homePage = new HomePage();
-                homePage.appStoreLinki.click();
-
-            }
-
-            @Then("test that it should be redirected to apple store page")
-            public void test_that_it_should_be_redirected_to_apple_store_page () {
-                homePage = new HomePage();
-                String actualUrl = Driver.getDriver().getCurrentUrl();
-                String expectedUrl = "https://www.apple.com/app-store/";
-                Assert.assertEquals(expectedUrl, actualUrl);
-
-
-            }
-
-            @And("click subscribe quick")
-            public void clickSubscribeQuick () {
-                homePage = new HomePage();
-                homePage.subscribeQuick.click();
-
-
-            }
-
             @Then("verify that the title is Trendlifebuy Online Shopping")
             public void verifyThatTheTitleIsTrendlifebuyOnlineShopping() {
 
@@ -260,21 +570,21 @@ public class HomePageStepDefinitions {
 
             @Then("click the Track Your Order link")
             public void clickTheTrackYourOrderLink() {
-            homePage = new HomePage();
+
             homePage.trackYourOrderLink.click();
 
     }
 
             @Then("test that the Track Now Link is visible")
             public void testThatTheTrackNowLinkIsVisible() {
-            homePage = new HomePage();
+
             WebElement tracknowButton= homePage.trackNowButton;
             Assert.assertTrue(tracknowButton.isDisplayed());
     }
 
             @Then("click the compare button")
              public void clickTheCompareButton() {
-            homePage = new HomePage();
+
             homePage.compareButton.click();
     }
 
@@ -288,32 +598,32 @@ public class HomePageStepDefinitions {
     }
     @Then("click the login button")
     public void click_the_login_button() {
-        homePage = new HomePage();
+
         homePage.loginButton.click();
 
     }
     @Then("enter the email and password")
     public void enter_the_email_and_password() {
-        homePage = new HomePage();
+
         homePage.emailSpace.sendKeys(ConfigReader.getProperty("user09Email"));
         homePage.passwordSpace.sendKeys(ConfigReader.getProperty("user09Password"));
 
     }
     @Then("click the sign in button")
     public void click_the_sign_in_button() {
-        homePage = new HomePage();
+
         homePage.signInButton.click();
 
     }
     @Then("click the wishlist button")
     public void click_the_wishlist_button() {
-        homePage = new HomePage();
+
         homePage.wishlistButton.click();
 
     }
     @Then("test that relevant web site's title contains wishlist")
     public void test_that_relevant_web_site_s_title_contains_wishlist() {
-        homePage = new HomePage();
+
         String actualUrl=Driver.getDriver().getCurrentUrl();
         String expectedUrl="wishlist";
         Assert.assertTrue(actualUrl.contains(expectedUrl));
@@ -322,13 +632,13 @@ public class HomePageStepDefinitions {
 
     @Then("click to the logo")
     public void clickToTheLogo() {
-        homePage = new HomePage();
+
         homePage.logobutton.click();
     }
 
     @Then("test that the current url is homepage")
     public void testThatTheCurrentUrlIsHomepage() {
-        homePage = new HomePage();
+
         String actualUrl=Driver.getDriver().getCurrentUrl();
         String expectedUrl=ConfigReader.getProperty("userUrl");
 
@@ -338,7 +648,7 @@ public class HomePageStepDefinitions {
 
     @Then("enter {string} in search box and press the enter")
     public void enterInSearchBoxAndPressTheEnter(String wantedProduct) {
-        homePage = new HomePage();
+
         homePage.seachBox.sendKeys(ConfigReader.getProperty(wantedProduct)+Keys.ENTER);
 
 
@@ -347,7 +657,7 @@ public class HomePageStepDefinitions {
 
     @Then("test that the brandingText contains {string}")
     public void testThatTheBrandingTextContains(String wantedProduct) {
-        homePage = new HomePage();
+
         String actualKelime=homePage.brandingText.getText().toLowerCase();
         String expectedKelime=ConfigReader.getProperty("wantedProduct");
 
@@ -357,28 +667,28 @@ public class HomePageStepDefinitions {
 
     @Then("test that sign in button is visible")
     public void testThatSignInButtonIsVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.signInButton.isDisplayed());
 
     }
 
     @Then("click the register button")
     public void clickTheRegisterButton() {
-        homePage = new HomePage();
+
         homePage.registerButton.click();
 
     }
 
     @And("test that the sign up should be visible")
     public void testThatTheSignUpShouldBeVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.signUp.isDisplayed());
 
     }
 
     @And("click the home button")
     public void clickTheHomeButton() {
-        homePage = new HomePage();
+
         homePage.homeButton.click();
     }
 
@@ -392,7 +702,7 @@ public class HomePageStepDefinitions {
 
     @And("click the blog button")
     public void clickTheBlogButton() {
-        homePage = new HomePage();
+
         homePage.blogButton.click();
     }
 
@@ -406,7 +716,7 @@ public class HomePageStepDefinitions {
 
     @And("click the about button")
     public void clickTheAboutButton() {
-        homePage = new HomePage();
+
         homePage.aboutButton.click();
     }
 
@@ -419,7 +729,7 @@ public class HomePageStepDefinitions {
 
     @And("click the contact button")
     public void clickTheContactButton() {
-        homePage = new HomePage();
+
         homePage.contactButton.click();
     }
 
@@ -433,13 +743,13 @@ public class HomePageStepDefinitions {
 
     @And("click the New User Zone button")
     public void clickTheNewUserZoneButton() {
-        homePage = new HomePage();
+
         homePage.newUserZoneButton.click();
     }
 
     @And("test that the New User Zone button should redirect to the relevant page")
     public void testThatTheNewUserZoneButtonShouldRedirectToTheRelevantPage() {
-        homePage = new HomePage();
+
         String actualUrl=Driver.getDriver().getCurrentUrl();
         String expectedKelime="user-zone";
         Assert.assertTrue(actualUrl.contains(expectedKelime));
@@ -447,14 +757,14 @@ public class HomePageStepDefinitions {
 
     @Then("click the all Categories")
     public void clickTheAllCategories() {
-        homePage = new HomePage();
+
         homePage.allCategoriesDropDownMenu.click();
 
     }
 
     @And("test that all categories are viisible")
     public void testThatAllCategoriesAreViisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.ComputerAccessoriesLinki.isDisplayed());
         Assert.assertTrue(homePage.ElectronicsDevicesLinki.isDisplayed());
         Assert.assertTrue(homePage.WatchesAccessoriesLinki.isDisplayed());
@@ -469,7 +779,7 @@ public class HomePageStepDefinitions {
 
     @And("test that all categories are active")
     public void testThatAllCategoriesAreActive() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.ComputerAccessoriesLinki.isEnabled());
         Assert.assertTrue(homePage.ElectronicsDevicesLinki.isEnabled());
         Assert.assertTrue(homePage.WatchesAccessoriesLinki.isEnabled());
@@ -492,7 +802,7 @@ public class HomePageStepDefinitions {
 
     @Then("test that my account,order status,referral and coupons are visible")
     public void testThatMyAccountOrderStatusReferralAndCouponsAreVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.myAccount.isDisplayed());
         Assert.assertTrue(homePage.orderStatus.isDisplayed());
         Assert.assertTrue(homePage.referral.isDisplayed());
@@ -534,7 +844,7 @@ public class HomePageStepDefinitions {
 
     @Then("test that the About Us, Contact Us, Career, Refund Policy, Terms & Condition links are visible")
     public void testThatTheAboutUsContactUsCareerRefundPolicyTermsConditionLinksAreVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.aboutUsLinkYasar.isDisplayed());
         Assert.assertTrue(homePage.contactUsLinkYasar.isDisplayed());
         Assert.assertTrue(homePage.careerLinkYasar.isDisplayed());
@@ -545,7 +855,7 @@ public class HomePageStepDefinitions {
 
     @Then("verify that clicking on About Us, Contact Us, Career, Terms & Condition links redirects to the relevant pages")
     public void verifyThatClickingOnAboutUsContactUsCareerTermsConditionLinksRedirectsToTheRelevantPages() {
-        homePage = new HomePage();
+
         //about us
         homePage.aboutUsLinkYasar.click();
         String actualUrl=Driver.getDriver().getCurrentUrl();
@@ -577,7 +887,7 @@ public class HomePageStepDefinitions {
 
     @And("verify that clicking Refund Policy links redirects to the relevant pages")
     public void verifyThatClickingRefundPolicyLinksRedirectsToTheRelevantPages() {
-        homePage = new HomePage();
+
         //Refund Policy
         homePage.refundPolicyLinkYasar.click();
         String actualUrlRefund=Driver.getDriver().getCurrentUrl();
@@ -588,7 +898,7 @@ public class HomePageStepDefinitions {
 
     @Then("Verify that the Google Play and Apple Store buttons are visible")
     public void verifyThatTheGooglePlayAndAppleStoreButtonsAreVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.playStoreLinki.isDisplayed());
         Assert.assertTrue(homePage.appStoreLinki.isDisplayed());
 
@@ -596,21 +906,21 @@ public class HomePageStepDefinitions {
 
     @And("click the Go to top button")
     public void clickTheGoToTopButton() {
-        homePage = new HomePage();
+        homePage=new HomePage();
         homePage.goToTop.click();
 
     }
 
     @Then("verify that it is scrolled to the top of the home page")
     public void verifyThatItIsScrolledToTheTopOfTheHomePage() {
-        homePage = new HomePage();
+        homePage=new HomePage();
         Assert.assertTrue(homePage.seachBox.isDisplayed());
 
     }
 
     @Then("Verify that facebook, twitter, linkedin and instagram icons are visible")
     public void verifyThatFacebookTwitterLinkedinAndInstagramIconsAreVisible() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.twitterIcon.isDisplayed());
         Assert.assertTrue(homePage.linkedinIcon.isDisplayed());
         Assert.assertTrue(homePage.instagramIcon.isDisplayed());
@@ -619,7 +929,7 @@ public class HomePageStepDefinitions {
 
     @Then("click the twitter icon")
     public void clickTheTwitterIcon() {
-        homePage = new HomePage();
+
         homePage.twitterIcon.click();
 
     }
@@ -640,7 +950,7 @@ public class HomePageStepDefinitions {
 
     @Then("click the linkedin icon")
     public void clickTheLinkedinIcon() {
-        homePage = new HomePage();
+
         homePage.linkedinIcon.click();
 
     }
@@ -655,7 +965,7 @@ public class HomePageStepDefinitions {
 
     @Then("click the instagram icon")
     public void clickTheInstagramIcon() {
-        homePage = new HomePage();
+
         homePage.instagramIcon.click();
     }
 
@@ -669,7 +979,7 @@ public class HomePageStepDefinitions {
 
     @Then("click the facebook icon")
     public void clickTheFacebookIcon() {
-        homePage = new HomePage();
+
         homePage.facebookIcon.click();
     }
 
@@ -685,7 +995,7 @@ public class HomePageStepDefinitions {
     public void verifyThatTrendingProductsIsVisible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.trendingProducts.isDisplayed());
 
     }
@@ -693,7 +1003,7 @@ public class HomePageStepDefinitions {
     public void verify_that_hot_categories_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.hotCategories.isDisplayed());
 
     }
@@ -701,41 +1011,41 @@ public class HomePageStepDefinitions {
     public void verify_that_house_appliances_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.houseAppliances.isDisplayed());
     }
     @Then("verify that Recommendation For You is visible")
     public void verify_that_recommendation_for_you_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.recommendationForYou.isDisplayed());
     }
     @Then("verify that Top Brand is visible")
     public void verify_that_top_brand_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.topBrand.isDisplayed());
     }
     @Then("verify that Popular Searches is visible")
     public void verify_that_popular_searches_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.popularSearches.isDisplayed());
     }
     @Then("verify that Trendlifebuy | Verify that ONLINE SHOPPING is visible")
     public void verify_that_trendlifebuy_verify_that_online_shopping_is_visible() {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scrollBy(0, 500)");
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.trendlifebuOnlineShopping.isDisplayed());
     }
 
     @Then("click the view all button")
     public void clickTheViewAllButton() {
-        homePage = new HomePage();
+
         JavascriptExecutor jse =(JavascriptExecutor)Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView();",homePage.allCategoriesDropDownMenu);
         bekle(2);
@@ -744,7 +1054,7 @@ public class HomePageStepDefinitions {
 
     @Then("Verify that the View All button redirects to the relevant page")
     public void verifyThatTheViewAllButtonRedirectsToTheRelevantPage() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.brandingTextviewAll.isDisplayed());
 
 
@@ -752,7 +1062,7 @@ public class HomePageStepDefinitions {
 
     @Then("click the more details button")
     public void clickTheMoreDetailsButton() {
-        homePage = new HomePage();
+
         JavascriptExecutor jse =(JavascriptExecutor)Driver.getDriver();
         jse.executeScript("arguments[0].scrollIntoView();",homePage.houseAppliances);
         bekle(2);
@@ -762,13 +1072,13 @@ public class HomePageStepDefinitions {
 
     @Then("Verify that the More Deals button redirects to the relevant page")
     public void verifyThatTheMoreDealsButtonRedirectsToTheRelevantPage() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.brandingTextviewAll.isDisplayed());
     }
 
     @Then("test that The home page must be accessible when the URL is entered")
     public void testThatTheHomePageMustBeAccessibleWhenTheURLIsEntered() {
-        homePage = new HomePage();
+
         Assert.assertTrue(homePage.seachBox.isEnabled());
     }
 
@@ -777,6 +1087,11 @@ public class HomePageStepDefinitions {
      homePage.loadMore.click();
     }
 }
+
+
+
+
+
 
 
 

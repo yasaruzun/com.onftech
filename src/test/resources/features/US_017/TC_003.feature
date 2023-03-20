@@ -5,7 +5,7 @@
     Background: User goes to Url
       Given User goes to "Url"
 
-    Scenario: TC_003 Dashboard page, My Order page order detail test.
+    Scenario: TC_003_01 Dashboard page, My Order page order detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -16,9 +16,9 @@
       And Side Bar My Order link.click
       And  Order ID is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Dashboard page, My Order page order detail test.
+
+    Scenario: TC_003_02 Dashboard page, My Order page order detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -29,10 +29,10 @@
       And Side Bar My Order link.click
       And   Status is displayed
       And logout link is click
-      And closes the page
 
 
-    Scenario: TC_003 Dashboard page, My Order page order detail test.
+
+    Scenario: TC_003_03 Dashboard page, My Order page order detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -43,9 +43,9 @@
       And Side Bar My Order link.click
       And  Order date is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Dashboard page, My Order page order detail test.
+
+    Scenario: TC_003_04 Dashboard page, My Order page order detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -56,9 +56,9 @@
       And Side Bar My Order link.click
       And  Order Amount is displayed
       And logout link is click
-      And closes the page
 
-    Scenario: TC_003 Dashboard page, My Order page order detail test.
+
+    Scenario: TC_003_05 Dashboard page, My Order page order detail test.
 
       Then  Home Page is display "trendlifebuy"
       And Login link is click
@@ -69,7 +69,7 @@
       And Side Bar My Order link.click
       And  Paid By is displayed
       And logout link is click
-      And closes the page
+
 
 
 
