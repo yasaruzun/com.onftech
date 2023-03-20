@@ -17,6 +17,7 @@ public class HomePage {
         105-200 mustafa talip
         205-300 bülent
         305-400 yavuz
+        405-600- yasar2
          */
      @FindBy(xpath="//span[text()='Play store']")
      public WebElement playStoreLinki;
@@ -74,44 +75,28 @@ public class HomePage {
     @FindBy(xpath = "(//a[text()='Blog'])[1]")
     public WebElement blogButton;
 
+    @FindBy(xpath = "(//a[text()='About Us'])[1]")
+    public WebElement aboutButton;
+    @FindBy(xpath = "(//a[text()='Contact'])[1]")
+    public WebElement contactButton;
 
+    @FindBy(xpath = "//span[text()='New User Zone']")
+    public  WebElement newUserZoneButton;
 
+    @FindBy(xpath = "//div[@class='dropdown show category_menu']")
+    public WebElement allCategoriesDropDownMenu;
 
+    @FindBy(xpath = "//i[@class='fas fa-desktop']")
+    public WebElement ComputerAccessoriesLinki;
 
+    @FindBy(xpath = "//i[@class='fas fa-vote-yea']")
+    public WebElement ElectronicsDevicesLinki;
 
+    @FindBy(xpath = "//i[@class='far fa-clock']")
+    public WebElement WatchesAccessoriesLinki;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    @FindBy(xpath = "//i[@class='ti-stamp']")
+    public WebElement FashionsLinki;
 
 
 
@@ -417,23 +402,82 @@ public WebElement AboutUsLink;
 
 
 
+//yasar
+    @FindBy(xpath = "//i[@class='fab fa-kickstarter-k']")
+    public WebElement ToysKidsBabiesLinki;
 
+    @FindBy(xpath = "//i[@class='fas fa-shopping-bag']")
+    public WebElement BagShoesLinki;
+    @FindBy(xpath = "//i[@class='fas fa-home']")
+    public WebElement LifestyleHomeLinki;
+    @FindBy(xpath = "//i[@class='fas fa-tv']")
+    public WebElement TVHomeAppliancesLinki;
 
+    @FindBy(xpath = "//i[@class='fas fa-bicycle']")
+    public WebElement AutoMobilesbikesLinki;
 
+    @FindBy(xpath = "//a[text()='My Account']")
+    public WebElement myAccount;
 
+    @FindBy(xpath = "//a[text()='Order Status']")
+    public WebElement orderStatus;
 
+    @FindBy(xpath = "//a[text()='Referral']")
+    public WebElement referral;
+    @FindBy(xpath = "//a[text()='Coupons']")
+    public WebElement coupons;
 
+    @FindBy(xpath = "//a[text()='About Us']")
+    public WebElement aboutUsLinkYasar;
+    @FindBy(xpath = "//a[text()='Contact Us']")
+    public WebElement contactUsLinkYasar;
+    @FindBy(xpath = "//a[text()='Career']")
+    public WebElement careerLinkYasar;
 
+    @FindBy(xpath = "//a[text()='Refund Policy']")
+    public WebElement refundPolicyLinkYasar;
 
+    @FindBy(xpath = "//a[text()='Terms & Condition']")
+    public WebElement termsConditionLinkYasar;
 
+    @FindBy (xpath = "//div[@id='back-top']")
+    public WebElement goToTop;
 
+    @FindBy(xpath = "//i[@class='fab fa-twitter']")
+    public WebElement twitterIcon;
+    @FindBy(xpath = "//i[@class='fab fa-linkedin']")
+    public WebElement linkedinIcon;
+    @FindBy(xpath = "//i[@class='fab fa-instagram']")
+    public WebElement instagramIcon;
+    @FindBy(xpath = "//i[@class='fab fa-facebook-f']")
+    public WebElement facebookIcon;
 
+    @FindBy(xpath = "//h3[text()='Trending Products']")
+    public WebElement trendingProducts;
+    @FindBy(xpath = "//h3[text()='Hot  Categories']")
+    public WebElement hotCategories;
 
+    @FindBy(xpath = "//h4[text()='House Appliances']")
+    public WebElement houseAppliances;
 
+    @FindBy(xpath = "//h4[text()='Recommendation For You']")
+    public WebElement recommendationForYou;
+    @FindBy(xpath = "//h3[text()='Top Brand']")
+    public WebElement topBrand;
 
+    @FindBy(xpath = "//h3[text()='Popular Searches']")
+    public WebElement popularSearches;
+    @FindBy(xpath = "//h3[text()='Trendlifebuy | ONLINE SHOPPING']")
+    public WebElement trendlifebuOnlineShopping;
+    @FindBy(xpath = "(//span[text()='View All'])[1]")
+    public WebElement viewAllButton;
+    @FindBy(xpath = "//h3[@class='branding_text']")
+    public WebElement brandingTextviewAll;
+    @FindBy(xpath = "//span[text()='More Deals']")
+    public WebElement moreDetails;
 
-
-
+    @FindBy(xpath = "//a[@id='loadmore']")
+    public WebElement loadMore;
 
 
 
