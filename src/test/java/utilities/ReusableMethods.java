@@ -144,5 +144,8 @@ public class ReusableMethods {
         });
         return element;
     }
-
+    public static void scrollDownJavascript(int x,int y){
+        JavascriptExecutor js=(JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy", x, y);
+    }
 }

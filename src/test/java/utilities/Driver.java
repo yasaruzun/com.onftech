@@ -10,17 +10,9 @@ import org.openqa.selenium.safari.SafariDriver;
 import java.time.Duration;
 
 public class Driver {
-    /*
-        Driver claass'indan drigiver'i getDriver methodu ile kullaniyoruz
-        sonradan projeye katilan insanlarin Driver class'indan obje olusturarak
-        driver kullanmaya calismalarini engellemek icin
 
-        Driver class'ini SINGLEON PATTERN ile duzenleyebiliriz
-        Bunun icin Driver class'inin parametresiz consrustor'ini olusturup
-        access modifier'ini private yapmamiz yeterli olur
-     */
 
-    //kimse bu class'dan obje uretemez
+
     private Driver(){
 
     }
