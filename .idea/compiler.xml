@@ -7,10 +7,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="com.automationExercise" />
+        <module name="com.onftech" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="com.automationExercise" target="19" />
       <module name="com.automationexercise" target="11" />
       <module name="com.team105Cucumber" target="18" />
     </bytecodeTargetLevel>
